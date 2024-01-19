@@ -21,6 +21,7 @@ return new class extends Migration
             $table->json('features'); // Store amenities as a JSON array
             $table->decimal('price', 10, 2);
             $table->text('description');
+            $table->string('property_video')->nullable();
             $table->string('size');
             $table->string('type');
             $table->integer('bedrooms');
@@ -28,7 +29,8 @@ return new class extends Migration
             $table->string('year_built');
             $table->integer('garage');
             $table->integer('garage_size');
-            $table->json('floor_pattern')->nullable();
+            $table->string('floor_plan_description')->nullable();
+            $table->json('floor_plan_images');
             $table->string('meta_description')->nullable();
             $table->string('meta_keyword')->nullable();
             $table->string('stock_status');
