@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\PropertyAddress>
  */
-class AddressFactory extends Factory
+class PropertyAddressFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,7 +16,7 @@ class AddressFactory extends Factory
      */
     public function definition(): array
     {
-        $faker = \Faker\Factory::create();
+            $faker = \Faker\Factory::create();
         return [
             'street_address' => $faker->streetAddress,
             'state_county' => $faker->state,
