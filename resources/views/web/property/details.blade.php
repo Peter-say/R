@@ -29,10 +29,10 @@
                     <div class="col-lg-4 mb-5 mb-lg-0 order-lg-2">
                         <div class="sticky-top">
                             <div class="mb-4">
-                                <h3>Stunning 2 bedroom home in village</h3>
+                                <h3>{{$property->name}}</h3>
                                 <span class="d-block mb-3"><i class="fas fa-map-marker-alt fa-xs pe-2"></i>Virginia drive
                                     temple hills</span>
-                                <span class="price font-xll text-primary d-block">$1500000</span>
+                                <span class="price font-xll text-primary d-block">${{$property->price}}</span>
                                 <span class="sub-price font-lg text-dark d-block"><b>$6,500/Sqft </b> </span>
                                 <ul class="property-detail-meta list-unstyled ">
                                     <li><a href="#"> <i class="fas fa-star text-warning pe-2"></i>3.9/5 </a></li>
@@ -58,7 +58,7 @@
                                             alt="">
                                     </div>
                                     <div class="agent-contact-name">
-                                        <h6>Joana williams</h6>
+                                        <h6>{{$property->agent->full_name}}</h6>
                                         <a href="#">Company Agent</a>
                                         <span class="d-block"><i class="fas fa-phone-volume pe-2 mt-2"></i>(123)
                                             345-6789</span>
@@ -76,14 +76,23 @@
                             <div class="owl-carousel" data-animateOut="fadeOut" data-nav-arrow="true" data-items="1"
                                 data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0"
                                 data-loop="true">
+                                @if (is_array(json_decode($property->images)) && count(json_decode($property->images)) === 1)
+                                @php
+                                    $imagePath = json_decode($property->images);
+                                @endphp
                                 <div class="item">
-                                    <a class="portfolio-img" href="images/property/big-img-01.jpg"><img class="img-fluid"
-                                            src="images/property/big-img-01.jpg" alt=""></a>
+                                    <a class="portfolio-img" href=""><img class="img-fluid"
+                                            src="{{asset('property/images/' . $imagePath)}}" alt=""></a>
                                 </div>
+                                @elseif (is_array(json_decode($property->images)) && count(json_decode($property->images)) > 1)
+                                {{-- Display a collection of images --}}
+                                @foreach (json_decode($property->images) as $imagePath)
                                 <div class="item">
-                                    <a class="portfolio-img" href="images/property/big-img-02.jpg"><img class="img-fluid"
-                                            src="images/property/big-img-02.jpg" alt=""></a>
+                                    <a class="portfolio-img"><img class="img-fluid"
+                                            src="{{asset('property/images/' . $imagePath)}}" alt=""></a>
                                 </div>
+                                @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="property-info mt-5">

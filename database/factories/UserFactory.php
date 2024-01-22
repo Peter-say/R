@@ -41,10 +41,14 @@ class UserFactory extends Factory
 
     public function agent(): UserFactory
     {
+       
         return $this->state(function (array $attributes) {
+            $images = glob(public_path('web/images/agent/*'));
+            $random_images = basename($images[array_rand($images)]);
+    
             return [
                 'phone_number' => $this->faker->phoneNumber,
-                'avatar' => null,
+                'avatar' =>  $random_images,
                 'bio' => $this->faker->text,
                 'company' => $this->faker->company,
                 'website' => $this->faker->url,

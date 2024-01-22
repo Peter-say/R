@@ -15,29 +15,46 @@ class CategoryTableSeeder extends Seeder
     {
         $datas = [
             [
-                'name' => 'Resedential',
-                'parent_id' => 1,
+                'name' => 'Residential',
+                'parent_id' => null,
             ],
-
+    
             [
                 'name' => 'Commercial',
-                'parent_id' => 2,
+                'parent_id' => null,
             ],
-
+    
             [
-                'name' => 'Appartment',
-                'parent_id' => 1,
+                'name' => 'Apartment',
+                'parent_id' => 1, // Parent category: Residential
             ],
-
+    
             [
                 'name' => 'Land',
-                'parent_id' => 2,
+                'parent_id' => 1, // Parent category: Residential
             ],
-
+    
             [
-                'name' => 'Laptop',
-                'parent_id' => 2,
+                'name' => 'Building Code',
+                'parent_id' => 2, // Parent category: Commercial
             ],
+    
+            [
+                'name' => 'Communal Land',
+                'parent_id' => 1, // Parent category: Residential
+            ],
+    
+            [
+                'name' => 'Floor Area',
+                'parent_id' => 2, // Parent category: Commercial
+            ],
+    
+            [
+                'name' => 'Insurability',
+                'parent_id' => 2, // Parent category: Commercial
+            ],
+    
+            // Add more subcategories as needed
         ];
 
         foreach ($datas as $key => $data) {

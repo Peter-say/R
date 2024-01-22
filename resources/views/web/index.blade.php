@@ -2,8 +2,9 @@
 
 @section('contents')
     <!--=================================
-    banner -->
-    <section class="banner bg-holder bg-overlay-black-30" style="background-image: url({{$web_assets}}/images/banner-01.jpg);">
+        banner -->
+    <section class="banner bg-holder bg-overlay-black-30"
+        style="background-image: url({{ $web_assets }}/images/banner-01.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-12 position-relative">
@@ -123,10 +124,10 @@
         </div>
     </section>
     <!--=================================
-      banner -->
+          banner -->
 
     <!--=================================
-      Browse properties -->
+          Browse properties -->
     <section class="space-ptb">
         <div class="container">
             <div class="row justify-content-center">
@@ -141,87 +142,18 @@
                 <div class="col-12">
                     <div class="category">
                         <ul class="list-unstyled mb-0">
-                            <li class="category-item">
-                                <a href="property-list.html">
-                                    <div class="category-icon">
-                                        <i class="flaticon-building-2"></i>
-                                    </div>
-                                    <h6 class="mb-0">Residential</h6>
-                                    <span>(457)</span>
-                                </a>
-                            </li>
-                            <li class="category-item">
-                                <a href="property-list.html">
-                                    <div class="category-icon">
-                                        <i class="flaticon-skyline"></i>
-                                    </div>
-                                    <h6 class="mb-0">Commercial</h6>
-                                    <span>(659)</span>
-                                </a>
-                            </li>
-                            <li class="category-item">
-                                <a href="property-list.html">
-                                    <div class="category-icon">
-                                        <i class="flaticon-apartment"></i>
-                                    </div>
-                                    <h6 class="mb-0">Industrial</h6>
-                                    <span>(298)</span>
-                                </a>
-                            </li>
-                            <li class="category-item">
-                                <a href="property-list.html">
-                                    <div class="category-icon">
-                                        <i class="flaticon-apartment-1"></i>
-                                    </div>
-                                    <h6 class="mb-0">Apartment</h6>
-                                    <span>(235)</span>
-                                </a>
-                            </li>
-                            <li class="category-item">
-                                <a href="property-list.html">
-                                    <div class="category-icon">
-                                        <i class="flaticon-real-estate"></i>
-                                    </div>
-                                    <h6 class="mb-0">Land</h6>
-                                    <span>(478)</span>
-                                </a>
-                            </li>
-                            <li class="category-item">
-                                <a href="property-list.html">
-                                    <div class="category-icon">
-                                        <i class="flaticon-building-1"></i>
-                                    </div>
-                                    <h6 class="mb-0">Building code</h6>
-                                    <span>(698)</span>
-                                </a>
-                            </li>
-                            <li class="category-item">
-                                <a href="property-list.html">
-                                    <div class="category-icon">
-                                        <i class="flaticon-building"></i>
-                                    </div>
-                                    <h6 class="mb-0">Communal land</h6>
-                                    <span>(152)</span>
-                                </a>
-                            </li>
-                            <li class="category-item">
-                                <a href="property-list.html">
-                                    <div class="category-icon">
-                                        <i class="flaticon-pin"></i>
-                                    </div>
-                                    <h6 class="mb-0">Floor area</h6>
-                                    <span>(256)</span>
-                                </a>
-                            </li>
-                            <li class="category-item">
-                                <a href="property-list.html">
-                                    <div class="category-icon">
-                                        <i class="flaticon-building-3"></i>
-                                    </div>
-                                    <h6 class="mb-0">Insurability</h6>
-                                    <span>(145)</span>
-                                </a>
-                            </li>
+                            @foreach ($categories as $category)
+                                <li class="category-item">
+                                    <a href="property-list.html">
+                                        <div class="category-icon">
+                                            <i class="flaticon-building-2"></i>
+                                        </div>
+                                        <h6 class="mb-0">{{ $category->name }}</h6>
+                                        <span>({{ $category->properties->count() }})</span>
+                                    </a>
+                                </li>
+                            @endforeach
+
                         </ul>
                     </div>
                 </div>
@@ -229,10 +161,10 @@
         </div>
     </section>
     <!--=================================
-       Browse properties -->
+           Browse properties -->
 
     <!--=================================
-        Featured properties-->
+            Featured properties-->
     <section class="space-pb">
         <div class="container">
             <div class="row justify-content-center">
@@ -244,336 +176,88 @@
                 </div>
             </div>
             <div class="row">
+                @foreach ($latestProperties as $latestProperty)
                 <div class="col-sm-6 col-md-4">
                     <div class="property-item">
                         <div class="property-image bg-overlay-gradient-04">
-                            <img class="img-fluid" src="{{$web_assets}}/images/property/grid/01.jpg" alt="">
+                            
+                                <img class="img-fluid" src="{{ asset('property/images/' . (json_decode($latestProperty->images)[0] ?? '')) }}" alt="">
+                           
                             <div class="property-lable">
                                 <span class="badge badge-md bg-primary">Bungalow</span>
                                 <span class="badge badge-md bg-info">Sale </span>
                             </div>
                             <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
                             <div class="property-agent">
-                                <div class="property-agent-image">
-                                    <img class="img-fluid" src="{{$web_assets}}/images/avatar/01.jpg" alt="">
-                                </div>
-                                <div class="property-agent-info">
-                                    <a class="property-agent-name" href="#">Alice Williams</a>
-                                    <span class="d-block">Company Agent</span>
-                                    <ul class="property-agent-contact list-unstyled">
-                                        <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                        <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                    </ul>
-                                </div>
+                                @if ($latestProperty->agent)
+                                    <div class="property-agent-image">
+                                        <img class="img-fluid" src="{{ $web_assets }}/images/avatar/01.jpg" alt="">
+                                    </div>
+                                    <div class="property-agent-info">
+                                        <a class="property-agent-name" href="#">{{ $latestProperty->agent->full_name }}</a>
+                                        <span class="d-block">Company Agent</span>
+                                        <ul class="property-agent-contact list-unstyled">
+                                            <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
+                                            <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
+                                        </ul>
+                                    </div>
+                                @else
+                                    <div class="property-agent-info">
+                                        <span class="property-agent-name">No Agent Assigned</span>
+                                        <!-- Other agent details... -->
+                                    </div>
+                                @endif
                             </div>
+            
                             <div class="property-agent-popup">
                                 <a href="#"><i class="fas fa-camera"></i> 06</a>
                             </div>
                         </div>
                         <div class="property-details">
                             <div class="property-details-inner">
-                                <h5 class="property-title"><a href="property-detail-style-01.html">Ample apartment at last
-                                        floor </a></h5>
-                                <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Virginia drive
-                                    temple hills</span>
-                                <span class="property-agent-date"><i class="far fa-clock fa-md"></i>10 days ago</span>
+                                <h5 class="property-title"><a href="">{{$latestProperty->name}} </a></h5>
+                                <span class="property-address">
+                                    <i class="fas fa-map-marker-alt fa-xs"></i>
+                                    @foreach ($latestProperties as $property) 
+                                    {{ $property->address->street_address ?? 'No Address Available' }}
+                                    @endforeach
+                                </span>
+                                <span class="property-agent-date">
+                                    <i class="far fa-clock fa-md"></i>{{ $latestProperty->created_at->diffForHumans() }}
+                                </span>
                                 <div class="property-price">$150.00<span> / month</span> </div>
                                 <ul class="property-info list-unstyled d-flex">
-                                    <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>1</span></li>
-                                    <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>2</span></li>
-                                    <li class="flex-fill property-m-sqft"><i
-                                            class="far fa-square"></i>sqft<span>145m</span></li>
+                                    <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>{{ $latestProperty->bedrooms }}</span></li>
+                                    <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>{{ $latestProperty->bathrooms }}</span></li>
+                                    <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>145m</span></li>
                                 </ul>
                             </div>
                             <div class="property-btn">
-                                <a class="property-link" href="property-detail-style-01.html">See Details</a>
+                                <a class="property-link" href="{{ route('property.details', $latestProperty->id) }}">See Details</a>
                                 <ul class="property-listing-actions list-unstyled mb-0">
                                     <li class="property-compare">
-                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Compare"
-                                            href="#"><i class="fas fa-exchange-alt"></i></a>
+                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a>
                                     </li>
                                     <li class="property-favourites">
-                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite"
-                                            href="#"><i class="far fa-heart"></i></a>
+                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="property-item">
-                        <div class="property-image bg-overlay-gradient-04">
-                            <img class="img-fluid" src="{{$web_assets}}/images/property/grid/02.jpg" alt="">
-                            <div class="property-lable">
-                                <span class="badge badge-md bg-primary">Apartment</span>
-                                <span class="badge badge-md bg-info">New </span>
-                            </div>
-                            <div class="property-agent">
-                                <div class="property-agent-image">
-                                    <img class="img-fluid" src="{{$web_assets}}/images/avatar/02.jpg" alt="">
-                                </div>
-                                <div class="property-agent-info">
-                                    <a class="property-agent-name" href="#">John doe</a>
-                                    <span class="d-block">Company Agent</span>
-                                    <ul class="property-agent-contact list-unstyled">
-                                        <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                        <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="property-agent-popup">
-                                <a href="#"><i class="fas fa-camera"></i> 12</a>
-                            </div>
-                        </div>
-                        <div class="property-details">
-                            <div class="property-details-inner">
-                                <h5 class="property-title"><a href="property-detail-style-01.html">Awesome family home</a>
-                                </h5>
-                                <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Vermont dr.
-                                    hephzibah</span>
-                                <span class="property-agent-date"><i class="far fa-clock fa-md"></i>2 months ago</span>
-                                <div class="property-price">$326.00<span> / month</span> </div>
-                                <ul class="property-info list-unstyled d-flex">
-                                    <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>2</span></li>
-                                    <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>3</span></li>
-                                    <li class="flex-fill property-m-sqft"><i
-                                            class="far fa-square"></i>sqft<span>215m</span></li>
-                                </ul>
-                            </div>
-                            <div class="property-btn">
-                                <a class="property-link" href="property-detail-style-01.html">See Details</a>
-                                <ul class="property-listing-actions list-unstyled mb-0">
-                                    <li class="property-compare"><a data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                                    <li class="property-favourites"><a data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="property-item">
-                        <div class="property-image bg-overlay-gradient-04">
-                            <img class="img-fluid" src="{{$web_assets}}/images/property/grid/03.jpg" alt="">
-                            <div class="property-lable">
-                                <span class="badge badge-md bg-primary">Summer House</span>
-                                <span class="badge badge-md bg-info">Hot </span>
-                            </div>
-                            <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
-                            <div class="property-agent">
-                                <div class="property-agent-image">
-                                    <img class="img-fluid" src="{{$web_assets}}/images/avatar/03.jpg" alt="">
-                                </div>
-                                <div class="property-agent-info">
-                                    <a class="property-agent-name" href="#">Felica queen</a>
-                                    <span class="d-block">Investment</span>
-                                    <ul class="property-agent-contact list-unstyled">
-                                        <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                        <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="property-agent-popup">
-                                <a href="#"><i class="fas fa-camera"></i> 03</a>
-                            </div>
-                        </div>
-                        <div class="property-details">
-                            <div class="property-details-inner">
-                                <h5 class="property-title"><a href="property-detail-style-01.html">Contemporary
-                                        apartment</a></h5>
-                                <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Newport st.
-                                    mebane, nc</span>
-                                <span class="property-agent-date"><i class="far fa-clock fa-md"></i>6 months ago</span>
-                                <div class="property-price">$658.00<span> / month</span> </div>
-                                <ul class="property-info list-unstyled d-flex">
-                                    <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>3</span></li>
-                                    <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>4</span></li>
-                                    <li class="flex-fill property-m-sqft"><i
-                                            class="far fa-square"></i>sqft<span>3,189m</span></li>
-                                </ul>
-                            </div>
-                            <div class="property-btn">
-                                <a class="property-link" href="property-detail-style-01.html">See Details</a>
-                                <ul class="property-listing-actions list-unstyled mb-0">
-                                    <li class="property-compare"><a data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                                    <li class="property-favourites"><a data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="property-item">
-                        <div class="property-image bg-overlay-gradient-04">
-                            <img class="img-fluid" src="{{$web_assets}}/images/property/grid/04.jpg" alt="">
-                            <div class="property-lable">
-                                <span class="badge badge-md bg-primary">Duplex</span>
-                                <span class="badge badge-md bg-info">Hot </span>
-                            </div>
-                            <div class="property-agent">
-                                <div class="property-agent-image">
-                                    <img class="img-fluid" src="{{$web_assets}}/images/avatar/04.jpg" alt="">
-                                </div>
-                                <div class="property-agent-info">
-                                    <a class="property-agent-name" href="#">Sara lisbon</a>
-                                    <span class="d-block">Construction</span>
-                                    <ul class="property-agent-contact list-unstyled">
-                                        <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                        <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="property-agent-popup">
-                                <a href="#"><i class="fas fa-camera"></i> 04</a>
-                            </div>
-                        </div>
-                        <div class="property-details">
-                            <div class="property-details-inner">
-                                <h5 class="property-title"><a href="property-detail-style-01.html">Family home for
-                                        sale</a></h5>
-                                <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Border st.
-                                    nicholasville, ky</span>
-                                <span class="property-agent-date"><i class="far fa-clock fa-md"></i>12 months ago</span>
-                                <div class="property-price">$485.00<span> / month</span> </div>
-                                <ul class="property-info list-unstyled d-flex">
-                                    <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>2</span></li>
-                                    <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>1</span></li>
-                                    <li class="flex-fill property-m-sqft"><i
-                                            class="far fa-square"></i>sqft<span>2,356m</span></li>
-                                </ul>
-                            </div>
-                            <div class="property-btn">
-                                <a class="property-link" href="property-detail-style-01.html">See Details</a>
-                                <ul class="property-listing-actions list-unstyled mb-0">
-                                    <li class="property-compare"><a data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                                    <li class="property-favourites"><a data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="property-item">
-                        <div class="property-image bg-overlay-gradient-04">
-                            <img class="img-fluid" src="{{$web_assets}}/images/property/grid/05.jpg" alt="">
-                            <div class="property-lable">
-                                <span class="badge badge-md bg-primary">Penthouses</span>
-                                <span class="badge badge-md bg-info">Rent </span>
-                            </div>
-                            <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
-                            <div class="property-agent">
-                                <div class="property-agent-image">
-                                    <img class="img-fluid" src="{{$web_assets}}/images/avatar/05.jpg" alt="">
-                                </div>
-                                <div class="property-agent-info">
-                                    <a class="property-agent-name" href="#">Mellissa Doe</a>
-                                    <span class="d-block">Founder & CEO</span>
-                                    <ul class="property-agent-contact list-unstyled">
-                                        <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                        <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="property-agent-popup">
-                                <a href="#"><i class="fas fa-camera"></i> 10</a>
-                            </div>
-                        </div>
-                        <div class="property-details">
-                            <div class="property-details-inner">
-                                <h5 class="property-title"><a href="property-detail-style-01.html">Luxury villa with
-                                        pool</a></h5>
-                                <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>West Indian St.
-                                    Missoula</span>
-                                <span class="property-agent-date"><i class="far fa-clock fa-md"></i>2 years ago</span>
-                                <div class="property-price">$698.00<span> / month</span> </div>
-                                <ul class="property-info list-unstyled d-flex">
-                                    <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>5</span></li>
-                                    <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>4</span></li>
-                                    <li class="flex-fill property-m-sqft"><i
-                                            class="far fa-square"></i>sqft<span>1,658m</span></li>
-                                </ul>
-                            </div>
-                            <div class="property-btn">
-                                <a class="property-link" href="property-detail-style-01.html">See Details</a>
-                                <ul class="property-listing-actions list-unstyled mb-0">
-                                    <li class="property-compare"><a data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                                    <li class="property-favourites"><a data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="property-item">
-                        <div class="property-image bg-overlay-gradient-04">
-                            <img class="img-fluid" src="{{$web_assets}}/images/property/grid/06.jpg" alt="">
-                            <div class="property-lable">
-                                <span class="badge badge-md bg-primary">Studio</span>
-                                <span class="badge badge-md bg-info">New </span>
-                            </div>
-                            <div class="property-agent">
-                                <div class="property-agent-image">
-                                    <img class="img-fluid" src="{{$web_assets}}/images/avatar/06.jpg" alt="">
-                                </div>
-                                <div class="property-agent-info">
-                                    <a class="property-agent-name" href="#">Michael Bean</a>
-                                    <span class="d-block">Research</span>
-                                    <ul class="property-agent-contact list-unstyled">
-                                        <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                        <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="property-agent-popup">
-                                <a href="#"><i class="fas fa-camera"></i> 02</a>
-                            </div>
-                        </div>
-                        <div class="property-details">
-                            <div class="property-details-inner">
-                                <h5 class="property-title"><a href="property-detail-style-01.html">184 lexington
-                                        avenue</a></h5>
-                                <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Hamilton rd.
-                                    willoughby, oh</span>
-                                <span class="property-agent-date"><i class="far fa-clock fa-md"></i>3 years ago</span>
-                                <div class="property-price">$236.00<span> / month</span> </div>
-                                <ul class="property-info list-unstyled d-flex">
-                                    <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>2</span></li>
-                                    <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>2</span></li>
-                                    <li class="flex-fill property-m-sqft"><i
-                                            class="far fa-square"></i>sqft<span>3,657m</span></li>
-                                </ul>
-                            </div>
-                            <div class="property-btn">
-                                <a class="property-link" href="property-detail-style-01.html">See Details</a>
-                                <ul class="property-listing-actions list-unstyled mb-0">
-                                    <li class="property-compare"><a data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a></li>
-                                    <li class="property-favourites"><a data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 text-center">
-                    <a class="btn btn-link" href="property-list.html"><i class="fas fa-plus"></i>View All Listings</a>
-                </div>
+            @endforeach
+            
+               
+               
             </div>
         </div>
     </section>
     <!--=================================
-      Featured properties-->
+          Featured properties-->
 
     <!--=================================
-       offering the Best Real Estate-->
+           offering the Best Real Estate-->
     <section class="clearfix">
         <div class="container">
             <div class="row justify-content-center">
@@ -594,7 +278,7 @@
                             <div class="property-offer">
                                 <div class="property-offer-item">
                                     <div class="property-offer-image bg-holder"
-                                        style="background: url({{$web_assets}}/images/property/big-img-01.jpg);">
+                                        style="background: url({{ $web_assets }}/images/property/big-img-01.jpg);">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-10 col-sm-12">
                                                 <div class="property-details">
@@ -643,7 +327,7 @@
                             <div class="property-offer">
                                 <div class="property-offer-item">
                                     <div class="property-offer-image bg-holder"
-                                        style="background: url({{$web_assets}}/images/property/big-img-02.jpg);">
+                                        style="background: url({{ $web_assets }}/images/property/big-img-02.jpg);">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-10 col-sm-12">
                                                 <div class="property-details">
@@ -694,11 +378,12 @@
         </div>
     </section>
     <!--=================================
-        offering the Best Real Estate-->
+            offering the Best Real Estate-->
 
     <!--=================================
-        Feature -->
-    <section class="space-ptb bg-holder-bottom building-space" style="background-image: url({{$web_assets}}/images/building-bg.png);">
+            Feature -->
+    <section class="space-ptb bg-holder-bottom building-space"
+        style="background-image: url({{ $web_assets }}/images/building-bg.png);">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-9">
@@ -776,11 +461,11 @@
         </div>
     </section>
     <!--=================================
-        Feature -->
+            Feature -->
 
     <!--=================================
-      testimonial -->
-    <section class="testimonial-main bg-holder" style="background-image: url({{$web_assets}}/images/bg/02.jpg);">
+          testimonial -->
+    <section class="testimonial-main bg-holder" style="background-image: url({{ $web_assets }}/images/bg/02.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -818,10 +503,10 @@
         </div>
     </section>
     <!--=================================
-      testimonial -->
+          testimonial -->
 
     <!--=================================
-      Meet our agent -->
+          Meet our agent -->
     <section class="space-ptb">
         <div class="container">
             <div class="row justify-content-center">
@@ -838,7 +523,8 @@
                     <div class="agent text-center">
                         <div class="agent-detail">
                             <div class="agent-avatar avatar avatar-xllll">
-                                <img class="img-fluid rounded-circle" src="{{$web_assets}}/images/agent/01.jpg" alt="">
+                                <img class="img-fluid rounded-circle" src="{{ $web_assets }}/images/agent/01.jpg"
+                                    alt="">
                             </div>
                             <div class="agent-info">
                                 <h6 class="mb-0"> <a href="agent-detail.html">Alice Williams </a></h6>
@@ -856,7 +542,8 @@
                     <div class="agent text-center">
                         <div class="agent-detail">
                             <div class="agent-avatar avatar avatar-xllll">
-                                <img class="img-fluid rounded-circle" src="{{$web_assets}}/images/agent/02.jpg" alt="">
+                                <img class="img-fluid rounded-circle" src="{{ $web_assets }}/images/agent/02.jpg"
+                                    alt="">
                             </div>
                             <div class="agent-info">
                                 <h6 class="mb-0"> <a href="agent-detail.html">Felica queen </a></h6>
@@ -874,7 +561,8 @@
                     <div class="agent text-center">
                         <div class="agent-detail">
                             <div class="agent-avatar avatar avatar-xllll">
-                                <img class="img-fluid rounded-circle" src="{{$web_assets}}/images/agent/03.jpg" alt="">
+                                <img class="img-fluid rounded-circle" src="{{ $web_assets }}/images/agent/03.jpg"
+                                    alt="">
                             </div>
                             <div class="agent-info">
                                 <h6 class="mb-0"> <a href="agent-detail.html">Paul flavius </a></h6>
@@ -892,7 +580,8 @@
                     <div class="agent text-center">
                         <div class="agent-detail">
                             <div class="agent-avatar avatar avatar-xllll">
-                                <img class="img-fluid rounded-circle" src="{{$web_assets}}/images/agent/04.jpg" alt="">
+                                <img class="img-fluid rounded-circle" src="{{ $web_assets }}/images/agent/04.jpg"
+                                    alt="">
                             </div>
                             <div class="agent-info">
                                 <h6 class="mb-0"> <a href="agent-detail.html">Sara lisbon </a></h6>
@@ -910,10 +599,10 @@
         </div>
     </section>
     <!--=================================
-      Meet our agent -->
+          Meet our agent -->
 
     <!--=================================
-      Most popular places -->
+          Most popular places -->
     <section class="space-pb">
         <div class="container">
             <div class="row justify-content-center">
@@ -930,7 +619,7 @@
                         <div class="col-md-6 mb-4 mb-lg-0">
                             <a href="property-grid.html">
                                 <div class="location-item bg-overlay-gradient bg-holder"
-                                    style="background-image: url({{$web_assets}}/images/location/01.jpg);">
+                                    style="background-image: url({{ $web_assets }}/images/location/01.jpg);">
                                     <div class="location-item-info">
                                         <h5 class="location-item-title">Mumbai</h5>
                                         <span class="location-item-list">10 Properties</span>
@@ -941,7 +630,7 @@
                         <div class="col-md-6 mb-4 mb-md-0">
                             <a href="property-grid.html">
                                 <div class="location-item bg-overlay-gradient bg-holder"
-                                    style="background-image: url({{$web_assets}}/images/location/02.jpg);">
+                                    style="background-image: url({{ $web_assets }}/images/location/02.jpg);">
                                     <div class="location-item-info">
                                         <h5 class="location-item-title">Los angeles</h5>
                                         <span class="location-item-list">14 Properties</span>
@@ -952,7 +641,7 @@
                         <div class="col-lg-12 mt-0 mt-lg-4">
                             <a href="property-grid.html">
                                 <div class="location-item bg-overlay-gradient bg-holder"
-                                    style="background-image: url({{$web_assets}}/images/location/04.jpg);">
+                                    style="background-image: url({{ $web_assets }}/images/location/04.jpg);">
                                     <div class="location-item-info">
                                         <h5 class="location-item-title">Miami</h5>
                                         <span class="location-item-list">22 Properties</span>
@@ -978,10 +667,10 @@
         </div>
     </section>
     <!--=================================
-      Most popular places -->
+          Most popular places -->
 
     <!--=================================
-      mobile app -->
+          mobile app -->
     <section class="space-pt bg-light">
         <div class="container">
             <div class="row">
@@ -1035,16 +724,16 @@
                     </div>
                 </div>
                 <div class="col-lg-5 mt-5 mt-lg-0 text-center">
-                    <img class="img-fluid" src="{{$web_assets}}/images/mobile-app.png" alt="">
+                    <img class="img-fluid" src="{{ $web_assets }}/images/mobile-app.png" alt="">
                 </div>
             </div>
         </div>
     </section>
     <!--=================================
-      mobile app -->
+          mobile app -->
 
     <!--=================================
-      News, tips & articles -->
+          News, tips & articles -->
     <section class="space-ptb">
         <div class="container">
             <div class="row justify-content-center">
@@ -1060,7 +749,7 @@
                 <div class="col-lg-4">
                     <div class="blog-post">
                         <div class="blog-post-image">
-                            <img class="img-fluid" src="{{$web_assets}}/images/blog/01.jpg" alt="">
+                            <img class="img-fluid" src="{{ $web_assets }}/images/blog/01.jpg" alt="">
                         </div>
                         <div class="blog-post-content">
                             <div class="blog-post-details">
@@ -1080,8 +769,9 @@
                                     <a href="#"> <i class="far fa-clock"></i>02 Jan 2019</a>
                                 </div>
                                 <div class="blog-post-author">
-                                    <span> By <a href="#"> <img class="img-fluid" src="{{$web_assets}}/images/avatar/01.jpg"
-                                                alt="">Sara lisbon </a> </span>
+                                    <span> By <a href="#"> <img class="img-fluid"
+                                                src="{{ $web_assets }}/images/avatar/01.jpg" alt="">Sara lisbon
+                                        </a> </span>
                                 </div>
                                 <div class="blog-post-comment">
                                     <a href="#"> <i class="far fa-comment"></i>(12) </a>
@@ -1093,7 +783,7 @@
                 <div class="col-lg-4 mt-4 mt-lg-0">
                     <div class="blog-post">
                         <div class="blog-post-image">
-                            <img class="img-fluid" src="{{$web_assets}}/images/blog/02.jpg" alt="">
+                            <img class="img-fluid" src="{{ $web_assets }}/images/blog/02.jpg" alt="">
                         </div>
                         <div class="blog-post-content">
                             <div class="blog-post-details">
@@ -1112,8 +802,9 @@
                                     <a href="#"> <i class="far fa-clock"></i>14 Feb 2019</a>
                                 </div>
                                 <div class="blog-post-author">
-                                    <span> By <a href="#"> <img class="img-fluid" src="{{$web_assets}}/images/avatar/02.jpg"
-                                                alt="">Anne Smith</a> </span>
+                                    <span> By <a href="#"> <img class="img-fluid"
+                                                src="{{ $web_assets }}/images/avatar/02.jpg" alt="">Anne
+                                            Smith</a> </span>
                                 </div>
                                 <div class="blog-post-comment">
                                     <a href="#"> <i class="far fa-comment"></i>(32) </a>
@@ -1125,7 +816,7 @@
                 <div class="col-lg-4 mt-4 mt-lg-0">
                     <div class="blog-post">
                         <div class="blog-post-image">
-                            <img class="img-fluid" src="{{$web_assets}}/images/blog/03.jpg" alt="">
+                            <img class="img-fluid" src="{{ $web_assets }}/images/blog/03.jpg" alt="">
                         </div>
                         <div class="blog-post-content">
                             <div class="blog-post-details">
@@ -1144,8 +835,9 @@
                                     <a href="#"> <i class="far fa-clock"></i>30 March 2019</a>
                                 </div>
                                 <div class="blog-post-author">
-                                    <span> By <a href="#"> <img class="img-fluid" src="{{$web_assets}}/images/avatar/03.jpg"
-                                                alt="">Alice Williams</a> </span>
+                                    <span> By <a href="#"> <img class="img-fluid"
+                                                src="{{ $web_assets }}/images/avatar/03.jpg" alt="">Alice
+                                            Williams</a> </span>
                                 </div>
                                 <div class="blog-post-comment">
                                     <a href="#"> <i class="far fa-comment"></i>(45) </a>
@@ -1158,10 +850,10 @@
         </div>
     </section>
     <!--=================================
-      News, tips & articles -->
+          News, tips & articles -->
 
     <!--=================================
-      call to action -->
+          call to action -->
     <section class="py-5 bg-primary">
         <div class="container">
             <div class="row align-items-center">
@@ -1175,5 +867,5 @@
         </div>
     </section>
     <!--=================================
-      call to action -->
+          call to action -->
 @endsection

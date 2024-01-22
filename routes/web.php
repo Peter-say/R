@@ -18,5 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [IndexController::class, 'index']);
 Route::prefix('property')->as('property.')->group(function () {
     Route::get('listing', [PropertyController::class, 'listing'])->name('listing');
-    Route::get('details', [PropertyController::class, 'details'])->name('details');
+    Route::get('{id}/details', [PropertyController::class, 'details'])->name('details');
 });

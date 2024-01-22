@@ -13,6 +13,18 @@ class Property extends Model
 
     public function address()
     {
-        return $this->hasOne(PropertyAddress::class);
+        return $this->belongsTo(PropertyAddress::class);
+    }
+
+
+    public function agent()
+    {
+        return $this->belongsTo(User::class, 'user_id')->where('role', 'agent');
+    }
+
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class,  'category_id', 'id');
     }
 }

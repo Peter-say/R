@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\PropertyAddress;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
@@ -19,11 +20,11 @@ class PropertyFactory extends Factory
      */
     public function definition(): array
     {
-        $imageDirectory = public_path('web/imges/property/grid/');
+        $imageDirectory = public_path('web/images/property/grid/');
         $images = glob($imageDirectory . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
 
-        $floorPlanDirectory = public_path('web/imges/property/floor-plans');
-        $floorPlanImages = glob($floorPlanDirectory . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+        $floorPlanDirectory = public_path('web/images/property/floor-plans-01.jpeg');
+        $floorPlanImages = $floorPlanDirectory;
 
         $youtubeUrl = 'https://www.youtube.com/embed/kacyaEXqVhs';
         $propertyVideoId = Str::afterLast($youtubeUrl, '/');
@@ -56,17 +57,19 @@ class PropertyFactory extends Factory
 
             // Save the basename to the array
             $savedImages[] = $basename;
-        }
+
+        }        
+            // Convert the array of saved image basenames to a JSON string
+            $serializedImagePaths = json_encode($savedImages);
+
         $faker = \Faker\Factory::create();
         return [
             'category_id' => mt_rand(1, 2),
 
-            'user_id' => function () {
-                return \App\Models\User::factory()->create()->id;
-            },
+            'user_id' =>  mt_rand(1, 10),
             'name' =>  $name = $this->faker->sentence($nbWords = rand(10, 15), $variableNbWords = true),
             'slug' => Str::slug($name),
-            'images' => json_encode($savedImages),
+            'images' => $serializedImagePaths,
             'property_video' => "https://www.youtube.com/embed/$propertyVideoId",
             'features' => json_encode($faker->words(5)),
             'price' => $faker->randomFloat(2, 1000, 500000),
@@ -78,8 +81,9 @@ class PropertyFactory extends Factory
             'year_built' => $faker->date,
             'garage' => $faker->numberBetween(0, 1),
             'garage_size' => $faker->numberBetween(1, 3),
+            'address_id' => mt_rand(1, 15),
             'floor_plan_description' =>$faker->sentence(2),
-            'floor_plan_images' => json_encode( $floorPlanImages),
+            'floor_plan_images' => json_encode($floorPlanImages),
             'meta_description' => $faker->sentence,
             'meta_keyword' => $faker->word,
             'stock_status' => $faker->randomElement(['in_stock', 'out_of_stock']),

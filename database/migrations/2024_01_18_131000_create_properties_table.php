@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('address_id')->constrained('property_addresses')->nullable()->onDelete('cascade');
             $table->string('name');
             $table->string('slug')->unique(); // Ensure slugs are unique
             $table->json('images')->nullable(); // JSON array of room images

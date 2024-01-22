@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('property_addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('property_id')->constrained('properties')->onDelete('cascade');
             $table->string('street_address');
             $table->string('state_county');
             $table->string('area');
