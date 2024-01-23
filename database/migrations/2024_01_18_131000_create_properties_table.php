@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid', 12)->unique();
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('address_id')->constrained('property_addresses')->nullable()->onDelete('cascade');
