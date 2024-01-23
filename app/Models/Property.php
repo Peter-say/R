@@ -9,6 +9,8 @@ class Property extends Model
 {
     use HasFactory;
 
+    // protected $primaryKey = 'uuid';
+
     protected $guarded = [];
 
     public function address()
@@ -26,5 +28,10 @@ class Property extends Model
     public function category()
     {
         return $this->belongsTo(Category::class,  'category_id', 'id');
+    }
+
+    public function specifications()
+    {
+        return $this->hasMany(PropertySpecification::class);
     }
 }
