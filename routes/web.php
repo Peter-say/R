@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\User\ProfileController;
+use App\Http\Controllers\Dashboard\Users\IndexController as UsersIndexController;
 use App\Http\Controllers\Web\IndexController;
 use App\Http\Controllers\Web\PropertyController;
 use Illuminate\Support\Facades\Auth;
@@ -30,5 +31,9 @@ Route::prefix('dashboard')->as('dashboard.')->group(function () {
 
     Route::prefix('profile')->as('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'index']);
+    });
+
+    Route::prefix('users')->as('users.')->group(function () {
+        Route::get('/', [UsersIndexController::class, 'index']);
     });
 });
