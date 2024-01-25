@@ -1,28 +1,18 @@
 <nav class="navbar navbar-light bg-white navbar-static-top navbar-expand-lg header-sticky">
     <div class="container-fluid">
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"><i
-                class="fas fa-align-left"></i></button>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"><i class="fas fa-align-left"></i></button>
         <a class="navbar-brand" href="index.html">
-            <img class="img-fluid" src="{{$web_assets}}/images/logo.svg" alt="logo">
+            <img class="img-fluid" src="{{ $web_assets }}/images/logo.svg" alt="logo">
         </a>
         <div class="navbar-collapse collapse justify-content-center">
             <ul class="nav navbar-nav">
                 <li class="nav-item dropdown active">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Home<i class="fas fa-chevron-down fa-xs"></i></a>
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home<i class="fas fa-chevron-down fa-xs"></i></a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li class="active"><a class="dropdown-item" href="index.html">Home Default</a></li>
-                        <li><a class="dropdown-item" href="index-02.html">Home Modern</a></li>
-                        <li><a class="dropdown-item" href="index-map.html">Home map</a></li>
-                        <li><a class="dropdown-item" href="index-bg-slider.html">index bg slider</a></li>
-                        <li><a class="dropdown-item" href="index-bg-video.html">index bg video</a></li>
-                        <li><a class="dropdown-item" href="index-half-map.html">index half map</a></li>
-                        <li><a class="dropdown-item" href="index-slider.html">index slider</a></li>
-                        <li><a class="dropdown-item" href="index-property.html">index property</a></li>
-                        <li><a class="dropdown-item" href="index-splash.html">index splash</a></li>
+                        <li class="active"><a class="dropdown-item" href="/">Home </a></li>
                     </ul>
                 </li>
-                <li class="dropdown nav-item">
+                {{-- <li class="dropdown nav-item">
                     <a href="properties.html" class="nav-link" data-bs-toggle="dropdown">Pages<i
                             class="fas fa-chevron-down fa-xs"></i></a>
                     <ul class="dropdown-menu megamenu dropdown-menu-lg">
@@ -95,41 +85,17 @@
                             </div>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Listing <i class="fas fa-chevron-down fa-xs"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="property-list.html">Property list</a></li>
+                        <li><a class="dropdown-item" href="{{ route('property.listing') }}">Property list</a></li>
                         <li><a class="dropdown-item" href="property-list-map.html">Property list with map</a></li>
-                        <li><a class="dropdown-item" href="property-grid.html">Property grid</a></li>
-                        <li><a class="dropdown-item" href="property-grid-map.html">Property grid with map</a></li>
-                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Dropdown
-                                <i class="fas fa-chevron-right fa-xs"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Submenu</a></li>
-                                <li><a class="dropdown-item" href="#">Submenu</a></li>
-                                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle"
-                                        href="#">Submenu 01 <i class="fas fa-chevron-right fa-xs"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Subsubmenu 01</a></li>
-                                        <li><a class="dropdown-item" href="#">Subsubmenu 01</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle"
-                                        href="#">Submenu 02 <i class="fas fa-chevron-right fa-xs"></i></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Subsubmenu 02</a></li>
-                                        <li><a class="dropdown-item" href="#">Subsubmenu 02</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Property <i class="fas fa-chevron-down fa-xs"></i>
@@ -144,93 +110,39 @@
                         <li><a class="dropdown-item" href="property-detail-style-04.html">property detail style
                                 04</a></li>
                     </ul>
-                </li>
-                <li class="dropdown nav-item mega-menu">
-                    <a href="#" class="nav-link" data-bs-toggle="dropdown">Elements<i
-                            class="fas fa-chevron-down fa-xs"></i></a>
-                    <ul class="dropdown-menu megamenu">
-                        <li>
-                            <div class="row">
-                                <div class="col-sm-6 col-lg-3">
-                                    <h6 class="mb-3 nav-title">Search types</h6>
-                                    <ul class="list-unstyled mt-lg-3">
-                                        <li><a href="search-style-under-banner.html">Search style under banner</a>
-                                        </li>
-                                        <li><a href="search-style-above-banner.html">Search style above banner</a>
-                                        </li>
-                                        <li><a href="search-style-below-banner.html">Search style below banner</a>
-                                        </li>
-                                        <li><a href="search-style-advanced.html">Advanced Search style </a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6 col-lg-3">
-                                    <h6 class="mb-3 nav-title">Search types</h6>
-                                    <ul class="list-unstyled mt-lg-3">
-                                        <li><a href="search-style-classic.html">Search style classic</a></li>
-                                        <li><a href="search-style-with-filter.html">Search style with filter</a>
-                                        </li>
-                                        <li><a href="search-style-advanced-02.html">Advanced Search style 02 </a>
-                                        </li>
-                                        <li><a href="search-style-advanced-03.html">Advanced Search style 03 </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6 col-lg-3">
-                                    <h6 class="mb-3 nav-title">Elements</h6>
-                                    <ul class="list-unstyled mt-lg-3">
-                                        <li><a href="element-feature-box.html">Feature box</a></li>
-                                        <li><a href="element-testimonials.html">Testimonials</a></li>
-                                        <li><a href="element-accordion.html">Accordion</a></li>
-                                        <li><a href="element-tabs.html">Tabs</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6 col-lg-3">
-                                    <h6 class="mb-3 nav-title">Elements</h6>
-                                    <ul class="list-unstyled mt-lg-3">
-                                        <li><a href="element-typography.html">Typography</a></li>
-                                        <li><a href="element-counter.html">counter</a></li>
-                                        <li><a href="element-countdown.html">Countdown</a></li>
-                                        <li><a href="element-category.html">Category</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
+                </li> --}}
+                {{--   --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Agency <i class="fas fa-chevron-down fa-xs"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="agency-grid.html">Agency grid</a></li>
-                        <li><a class="dropdown-item" href="agency-list.html">Agency list</a></li>
-                        <li><a class="dropdown-item" href="agency-detail.html">Agency detail</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Agent <i class="fas fa-chevron-down fa-xs"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="agent-grid.html">Agent grid</a></li>
-                        <li><a class="dropdown-item" href="agent-list.html">Agent list</a></li>
-                        <li><a class="dropdown-item" href="agent-detail.html">Agent detail</a></li>
-                        <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Account
-                                <span class="badge bg-danger ms-2">Hot</span> <i
-                                    class="fas fa-chevron-right fa-xs"></i></a>
-                            <ul class="dropdown-menu left-side">
-                                <li><a class="dropdown-item" href="account-profile.html">Profile</a></li>
-                                <li><a class="dropdown-item" href="account-my-properties.html">My properties </a>
-                                </li>
-                                <li><a class="dropdown-item" href="account-agency-management.html">Agency
-                                        management</a></li>
-                                <li><a class="dropdown-item" href="account-saved-homes.html">Saved homes</a></li>
-                                <li><a class="dropdown-item" href="account-saved-rental.html">Saved rental</a>
-                                </li>
-                            </ul>
-                        </li>
+                        <li><a class="dropdown-item" href="{{ route('agent.listing') }}">Agent list</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('web.about') }}">About Us</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Contact <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('web.contact') }}">Contact Us</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Blog <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ route('blog.index') }}">Blog 01</a></li>
+                        <li><a class="dropdown-item" href="{{ route('blog.details') }}">Blog Details</a></li>
                     </ul>
                 </li>
             </ul>
@@ -238,6 +150,10 @@
         <div class="add-listing d-none d-sm-block">
             <a class="btn btn-primary btn-md" href="submit-property.html"> <i class="fa fa-plus-circle"></i>Add
                 listing </a>
+        </div>
+        <div class="add-listing d-none d-sm-block">
+            <a class="btn btn-primary btn-md" href="submit-property.html"> <i class="fa fa-plus-circle"></i>Login
+            </a>
         </div>
     </div>
 </nav>

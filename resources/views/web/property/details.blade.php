@@ -1,7 +1,7 @@
 @extends('web.layouts.app')
 
 @section('contents')
-   
+
   <!--=================================
 Breadcrumb -->
   <div class="bg-light">

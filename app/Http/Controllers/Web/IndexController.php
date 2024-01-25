@@ -13,10 +13,20 @@ class IndexController extends Controller
     {
         $categories = Category::whereNull('parent_id')->get();
         $latestProperties = Property::with('agent')->where('status', 'active')->latest()->take(6)->get();
-       
+
         return view('web.index', [
             'categories' => $categories,
             'latestProperties' => $latestProperties,
         ]);
+    }
+
+    public function about()
+    {
+        return view('web.about');
+    }
+
+    public function contact()
+    {
+        return view('web.contact');
     }
 }
