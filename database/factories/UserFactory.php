@@ -30,6 +30,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
+            'uuid' => $this->faker->uuid(12),
             'first_name' => $this->faker->name(),
             'last_name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
@@ -47,6 +48,7 @@ class UserFactory extends Factory
             $random_images = basename($images[array_rand($images)]);
     
             return [
+                'uuid' => $this->faker->uuid(12),
                 'phone_number' => $this->faker->phoneNumber,
                 'avatar' =>  $random_images,
                 'bio' => $this->faker->text,
@@ -59,7 +61,7 @@ class UserFactory extends Factory
                 'state' => $this->faker->state,
                 'zip_code' => $this->faker->postcode,
                 'country' => $this->faker->country,
-                'is_verified' => $this->faker->boolean(90),
+                'is_verified' => $this->faker->randomElement(['Yes', 'No']),
                 'created_at' => now(),
                 'updated_at' => now(),
             ];

@@ -11,23 +11,24 @@
 			<div class="container-fluid">
                 <div class="form-head page-titles d-flex  align-items-center">
 					<div class="mr-auto  d-lg-block">
-						<h2 class="text-black font-w600">Order List</h2>
+						<h2 class="text-black font-w600">User List</h2>
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item active"><a href="javascript:void(0)">Customer</a></li>
-							<li class="breadcrumb-item"><a href="javascript:void(0)">Order List</a></li>
+							<li class="breadcrumb-item active"><a href="javascript:void(0)">Users</a></li>
+							<li class="breadcrumb-item"><a href="javascript:void(0)">List</a></li>
 						</ol>
 					</div>
 					<a href="javascript:void(0);" class="btn btn-primary rounded light mr-3">Refresh</a>
 					<a href="javascript:void(0);" class="btn btn-primary rounded"><i class="flaticon-381-settings-2 mr-0"></i></a>
 				</div>
-				<div class="row">
+				@if($users->count())
+                <div class="row">
 					<div class="col-xl-3 col-xxl-6 col-md-6">
 						<div class="card">
 							<div class="card-body">
 								<div class="media align-items-center">
 									<div class="media-body">
-										<h2 class="fs-36 text-black font-w600">245</h2>
-										<span class="fs-18 text-black">Total Customers</span>
+										<h2 class="fs-36 text-black font-w600">{{$users->count()}}</h2>
+										<span class="fs-18 text-black">Total Users</span>
 									</div>
 									<span class="bg-primary rounded p-3">
 										<svg width="38" height="38" viewBox="0 0 32 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,8 +44,8 @@
 							<div class="card-body">
 								<div class="media align-items-center">
 									<div class="media-body">
-										<h2 class="fs-36 text-black font-w600">562</h2>
-										<span class="fs-18 text-black">Total Transactions</span>
+										<h2 class="fs-36 text-black font-w600">{{$agent->count()}}</h2>
+										<span class="fs-18 text-black">Total Agents</span>
 									</div>
 									<span class="bg-primary rounded p-3">
 										<svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,12 +105,12 @@
 												<label class="custom-control-label" for="customCheckBox5"></label>
 											</div>
 										</td>
-										<td>#{{$user->id}}</td>
-										<td>{{$user->created_at->format('d, M, Y - h:m')}}</td>
-										<td>{{$user->avatar}}</td>
+										<td>#{{$user->uuid}}</td>
+										<td class="text-ov">{{$user->created_at->format('d, M, Y - h:m')}}</td>
+										<td><img class="img-fluid" src="{{ asset('web/images/agent/' . $user->avatar ) }}" alt=""></td>
 										<td class="text-ov">{{$user->full_name}}</td>
 										<td class="text-ov">{{$user->email}}</td>
-										<td>{{$user->phone}}</td>
+										<td>{{$user->phone_number}}</td>
 										<td>{{$user->role}}</td>
 										<td><span class="text-warning">{{$user->is_verified}}</span></td>
 										<td>
@@ -136,6 +137,11 @@
 						</div>
 					</div>
 				</div>
+                @else
+                   <div class="d-flex justify-content-center">
+                      <h5>No Data Available</h5>
+                   </div>
+                @endif
             </div>
 			
         </div>

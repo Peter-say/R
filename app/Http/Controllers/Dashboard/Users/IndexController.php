@@ -11,8 +11,10 @@ class IndexController extends Controller
     public function index()
     {
         $users = User::latest()->paginate(30);
+        $agent = $users->where('role', 'agent');
         return view('dashboard.users.index', [
-            'users' => $users
+            'users' => $users,
+            'agent' => $agent,
         ]);
     }
 }

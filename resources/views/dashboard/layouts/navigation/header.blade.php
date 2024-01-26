@@ -851,7 +851,7 @@
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="#" role="button" data-toggle="dropdown">
                             <div class="header-info">
-                                <span class="text-black">{{ Auth::user()->first_name }}</span>
+                                <span class="text-black">{{ Auth::user()->full_name }}</span>
                                 <p class="fs-12 mb-0">{{ Auth::user()->role }}</p>
                             </div>
                             <img src="{{ $dashboard_assets }}/images/profile/17.jpg" width="20"
