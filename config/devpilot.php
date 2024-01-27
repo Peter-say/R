@@ -89,7 +89,6 @@ return [
     // COMMAND FILTERS
     "command_filter" => [
         "disabled" => env("DEVPILOT_DISABLED_COMMANDS", [
-            "key:generate",
             "migrate:fresh",
             "migrate:refresh",
             "migrate:rollback",
