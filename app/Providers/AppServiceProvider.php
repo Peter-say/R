@@ -8,21 +8,25 @@ class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
+     *
+     * @return void
      */
-    public function register(): void
+    public function register()
     {
         //
     }
 
     /**
-     * Bootstrap any application services.
+     * Register any application services.
+     *
+     * @return void
      */
-    public function boot(): void
+    public function boot()
     {
-        view()->composer('*',function($view){
+        view()->composer("*", function ($view) {
             $view->with([
-                'web_assets' => url('/').env('RESOURCE_URL').'/web',
-                'dashboard_assets' => url('/').env('RESOURCE_URL').'/dashboard',
+                'web_assets' => url('/') . env('RESOURCE_URL') . '/web',
+                'dashboard_assets' => url('/') . env('RESOURCE_URL') . '/dashboard',
 
             ]);
         });

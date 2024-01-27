@@ -10,10 +10,10 @@
 						</a>
 						<ul aria-expanded="false">
 							<li><a href="{{route('dashboard.home')}}">Dashboard</a></li>
-							<li><a href="analytics.html">Analytics</a></li>
-							<li><a href="review.html">Review</a></li>
-							<li><a href="order-list.html">Order List</a></li>
-							<li><a href="customer-list.html">Customer</a></li>
+							<li><a href="{{route('dashboard.users.')}}">App Users</a></li>
+							<li><a href="{{route('dashboard.user.wishlists')}}">WishList</a></li>
+							<li><a href="{{route('dashboard.user.orders')}}">Order List</a></li>
+							<li><a href="">Customer</a></li>
 							<li><a href="property-details.html">Property Details</a></li>
 						</ul>
 					</li>

@@ -15,8 +15,8 @@
     <title>Laravel | Page Login</title>
     <meta name="description" content="Some description for the page" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{$dashboard_assets}}public/images/favicon.png">
-    <link href="{{$dashboard_assets}}/public/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{$dashboard_assets}}/images/favicon.png">
+    <link href="{{$dashboard_assets}}/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -30,10 +30,11 @@
                             <div class="col-xl-12">
                                 <div class="auth-form">
                                     <div class="text-center mb-3">
-                                        <a href="{{$dashboard_assets}}/index.html"><img src="{{$dashboard_assets}}/public/images/logo-full.png" alt=""></a>
+                                        <a href="{{$dashboard_assets}}/index.html"><img src="{{$dashboard_assets}}/images/logo-full.png" alt=""></a>
                                     </div>
                                     <h4 class="text-center mb-4">Sign in your account</h4>
-                                    <form action="https://omah.dexignzone.com/laravel/demo/index">
+                                    <form method="POST" action="{{route('login')}}" >
+                                        @csrf
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Email</strong></label>
                                             <input type="email"
@@ -48,7 +49,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1"><strong>Password</strong></label>
-                                            <input type="password"
+                                            <input type="password" name="password"
                                                 class="form-control @error('password') is-invalid @enderror"
                                                 value="Password">
                                             @error('password')
@@ -92,10 +93,10 @@
             </div>
         </div>
     </div>
-    <script src="{{$dashboard_assets}}/public/vendor/global/global.min.js" type="text/javascript"></script>
-    <script src="{{$dashboard_assets}}/public/vendor/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript"></script>
-    <script src="{{$dashboard_assets}}/public/js/custom.min.js" type="text/javascript"></script>
-    <script src="{{$dashboard_assets}}/public/js/deznav-init.js" type="text/javascript"></script>
+    <script src="{{$dashboard_assets}}/vendor/global/global.min.js" type="text/javascript"></script>
+    <script src="{{$dashboard_assets}}/vendor/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript"></script>
+    <script src="{{$dashboard_assets}}/js/custom.min.js" type="text/javascript"></script>
+    <script src="{{$dashboard_assets}}/js/deznav-init.js" type="text/javascript"></script>
     <script src="{{$dashboard_assets}}/https://omah.dexignzone.com/laravel/demo/js/custom.min.js" type="text/javascript"></script>
    <script src="{{$dashboard_assets}}/https://omah.dexignzone.com/laravel/demo/js/deznav-init.js" type="text/javascript"></script> -->
    

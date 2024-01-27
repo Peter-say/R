@@ -1,7 +1,7 @@
 @extends('web.layouts.app')
 
 @section('contents')
-   
+
   <!--=================================
 Breadcrumb -->
   <div class="bg-light">
@@ -75,12 +75,12 @@ Breadcrumb -->
               <div class="owl-carousel" data-animateOut="fadeOut" data-nav-arrow="true" data-items="1" data-md-items="1"
                 data-sm-items="1" data-xs-items="1" data-xx-items="1" data-space="0" data-loop="true">
                 <div class="item">
-                  <a class="portfolio-img" href="{{ $web_assets }}/images/property/big-img-01.jpg"><img class="img-fluid"
-                      src="{{ $web_assets }}/images/property/big-img-01.jpg" alt=""></a>
+                  <a class="portfolio-img" href="{{$web_assets}}/images/property/big-img-01.jpg"><img class="img-fluid"
+                      src="{{$web_assets}}/images/property/big-img-01.jpg" alt=""></a>
                 </div>
                 <div class="item">
-                  <a class="portfolio-img" href="{{ $web_assets }}/images/property/big-img-02.jpg"><img class="img-fluid"
-                      src="{{ $web_assets }}/images/property/big-img-02.jpg" alt=""></a>
+                  <a class="portfolio-img" href="{{$web_assets}}/images/property/big-img-02.jpg"><img class="img-fluid"
+                      src="{{$web_assets}}/images/property/big-img-02.jpg" alt=""></a>
                 </div>
               </div>
             </div>
