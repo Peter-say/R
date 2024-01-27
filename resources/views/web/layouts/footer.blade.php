@@ -62,7 +62,7 @@ footer-->
           </div>
         </div>
         <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-          <h5 class="text-primary mb-4">Subscribe us</h5>
+          <h5 class="text-primary mb-4">Subscribe</h5>
           <div class="footer-subscribe">
             <p class="text-white">Sign up to our newsletter to get the latest news and offers.</p>
             <form>
