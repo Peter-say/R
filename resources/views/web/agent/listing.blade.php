@@ -41,7 +41,7 @@
                             </div>
                             <div class="property-item mb-0">
                                 <div class="property-image bg-overlay-gradient-04">
-                                    <img class="img-fluid" src="images/property/grid/06.jpg" alt="">
+                                    <img class="img-fluid" src="{{ $web_assets }}/images/property/grid/06.jpg" alt="">
                                     <div class="property-lable">
                                         <span class="badge badge-md bg-primary">Studio</span>
                                         <span class="badge badge-md bg-info">New </span>
@@ -68,28 +68,28 @@
                                 <h6>Recently listed properties</h6>
                             </div>
                             <div class="recent-list-item">
-                                <img class="img-fluid" src="images/property/list/01.jpg" alt="">
+                                <img class="img-fluid" src="{{ $web_assets }}/images/property/list/01.jpg" alt="">
                                 <div class="recent-list-item-info">
                                     <a class="address mb-2" href="property-detail-style-01.html">3 bedroom house in gardner</a>
                                     <span class="text-primary">$2,456,326 </span>
                                 </div>
                             </div>
                             <div class="recent-list-item">
-                                <img class="img-fluid" src="images/property/list/02.jpg" alt="">
+                                <img class="img-fluid" src="{{ $web_assets }}/images/property/list/02.jpg" alt="">
                                 <div class="recent-list-item-info">
                                     <a class="address mb-2" href="property-detail-style-01.html">Master valley estates</a>
                                     <span class="text-primary">$1,200,265 </span>
                                 </div>
                             </div>
                             <div class="recent-list-item">
-                                <img class="img-fluid" src="images/property/list/03.jpg" alt="">
+                                <img class="img-fluid" src="{{ $web_assets }}/images/property/list/03.jpg" alt="">
                                 <div class="recent-list-item-info">
                                     <a class="address mb-2" href="property-detail-style-01.html">Green leaf apartments</a>
                                     <span class="text-primary">$4,645,105 </span>
                                 </div>
                             </div>
                             <div class="recent-list-item">
-                                <img class="img-fluid" src="images/property/list/04.jpg" alt="">
+                                <img class="img-fluid" src="{{ $web_assets }}/images/property/list/04.jpg" alt="">
                                 <div class="recent-list-item-info">
                                     <a class="address mb-2" href="property-detail-style-01.html">217 central park south</a>
                                     <span class="text-primary">$2,565,495 </span>
@@ -153,7 +153,7 @@
                             <div class="col-lg-4 text-center border-end">
                                 <div class="d-flex flex-column h-100">
                                     <div class="agent-avatar p-3 my-auto">
-                                        <img class="img-fluid" src="images/agent/01.jpg" alt="">
+                                        <img class="img-fluid" src="{{ $web_assets }}/images/agent/01.jpg" alt="">
                                     </div>
                                     <div class="agent-listing text-center mt-auto">
                                         <a href="#"> <strong class="text-primary d-inline-block me-2">20</strong>Listed Properties </a>
@@ -201,7 +201,7 @@
                             <div class="col-lg-4 text-center border-end">
                                 <div class="d-flex flex-column h-100">
                                     <div class="agent-avatar p-3 my-auto">
-                                        <img class="img-fluid" src="images/agent/02.jpg" alt="">
+                                        <img class="img-fluid" src="{{ $web_assets }}/images/agent/02.jpg" alt="">
                                     </div>
                                     <div class="agent-listing text-center mt-auto">
                                         <a href="#"> <strong class="text-primary d-inline-block me-2">45</strong>Listed Properties </a>
@@ -249,7 +249,7 @@
                             <div class="col-lg-4 text-center border-end">
                                 <div class="d-flex flex-column h-100">
                                     <div class="agent-avatar p-3 my-auto">
-                                        <img class="img-fluid" src="images/agent/03.jpg" alt="">
+                                        <img class="img-fluid" src="{{ $web_assets }}/images/agent/03.jpg" alt="">
                                     </div>
                                     <div class="agent-listing text-center mt-auto">
                                         <a href="#"> <strong class="text-primary d-inline-block me-2">15</strong>Listed Properties </a>

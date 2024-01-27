@@ -37,14 +37,14 @@
                   <a href="#"> <i class="far fa-clock"></i>25 March 2019</a>
                 </div>
                 <div class="blog-post-author">
-                  <span> By <a href="#"> <img class="img-fluid" src="images/avatar/01.jpg" alt="">Felica queen</a> </span>
+                  <span> By <a href="#"> <img class="img-fluid" src="{{ $web_assets }}/images/avatar/01.jpg" alt="">Felica queen</a> </span>
                 </div>
                 <div class="blog-post-comment">
                   <a href="#"> <i class="far fa-comment"></i>(15) </a>
                 </div>
               </div>
               <div class="blog-post-image">
-                <img class="img-fluid mb-4" src="images/blog/01.jpg" alt="">
+                <img class="img-fluid mb-4" src="{{ $web_assets }}/images/blog/01.jpg" alt="">
               </div>
               <div class="blog-post-content border-0">
                 <div class="blog-post-description">
@@ -54,10 +54,10 @@
                 <p>If success is a process with a number of defined steps, then it is just like any other process. So, what is the first step in any process?</p>
                 <div class="row">
                   <div class="col-lg-7">
-                    <img class="img-fluid mb-3" src="images/blog/02.jpg" alt="">
+                    <img class="img-fluid mb-3" src="{{ $web_assets }}/images/blog/02.jpg" alt="">
                   </div>
                   <div class="col-lg-5 mb-3 ">
-                    <img class="img-fluid" src="images/property/medium-img-01.jpg" alt="">
+                    <img class="img-fluid" src="{{ $web_assets }}/images/property/medium-img-01.jpg" alt="">
                   </div>
                 </div>
                 <p>Making a decision to do something – this is the first step. We all know that nothing moves until someone makes a decision. The first action is always in making the decision to proceed. This is a fundamental step, which most people overlook.</p>
@@ -80,7 +80,7 @@
                     <div class="border p-4">
                       <div class="d-sm-flex">
                         <div class="avatar avatar-xlll">
-                          <img class="img-fluid rounded-circle" src="images/avatar/01.jpg" alt="">
+                          <img class="img-fluid rounded-circle" src="{{ $web_assets }}/images/avatar/01.jpg" alt="">
                         </div>
                         <div class="ps-sm-4">
                           <h6 class="mb-1"> <span class="text-primary"> Posted by :</span> Alice Williams</h6>
@@ -106,7 +106,7 @@
                           <div class="item">
                             <div class="blog-post">
                               <div class="blog-post-image">
-                                <img class="img-fluid" src="images/blog/01.jpg" alt="">
+                                <img class="img-fluid" src="{{ $web_assets }}/images/blog/01.jpg" alt="">
                               </div>
                               <div class="blog-post-content">
                                 <div class="blog-post-details">
@@ -125,7 +125,7 @@
                                     <a href="#"> <i class="far fa-clock"></i>02 Jan 2019</a>
                                   </div>
                                   <div class="blog-post-author">
-                                    <span> By <a href="#"> <img class="img-fluid" src="images/avatar/01.jpg" alt="">Sara lisbon </a> </span>
+                                    <span> By <a href="#"> <img class="img-fluid" src="{{ $web_assets }}/images/avatar/01.jpg" alt="">Sara lisbon </a> </span>
                                   </div>
                                   <div class="blog-post-comment">
                                     <a href="#"> <i class="far fa-comment"></i>(12) </a>
@@ -137,7 +137,7 @@
                           <div class="item">
                             <div class="blog-post">
                               <div class="blog-post-image">
-                                <img class="img-fluid" src="images/blog/02.jpg" alt="">
+                                <img class="img-fluid" src="{{ $web_assets }}/images/blog/02.jpg" alt="">
                               </div>
                               <div class="blog-post-content">
                                 <div class="blog-post-details">
@@ -156,7 +156,7 @@
                                     <a href="#"> <i class="far fa-clock"></i>14 Feb 2019</a>
                                   </div>
                                   <div class="blog-post-author">
-                                    <span> By <a href="#"> <img class="img-fluid" src="images/avatar/02.jpg" alt="">Anne Smith</a> </span>
+                                    <span> By <a href="#"> <img class="img-fluid" src="{{ $web_assets }}/images/avatar/02.jpg" alt="">Anne Smith</a> </span>
                                   </div>
                                   <div class="blog-post-comment">
                                     <a href="#"> <i class="far fa-comment"></i>(32) </a>
@@ -168,7 +168,7 @@
                           <div class="item">
                             <div class="blog-post">
                               <div class="blog-post-image">
-                                <img class="img-fluid" src="images/blog/03.jpg" alt="">
+                                <img class="img-fluid" src="{{ $web_assets }}/images/blog/03.jpg" alt="">
                               </div>
                               <div class="blog-post-content">
                                 <div class="blog-post-details">
@@ -187,7 +187,7 @@
                                     <a href="#"> <i class="far fa-clock"></i>30 March 2019</a>
                                   </div>
                                   <div class="blog-post-author">
-                                    <span> By <a href="#"> <img class="img-fluid" src="images/avatar/03.jpg" alt="">Alice Williams</a> </span>
+                                    <span> By <a href="#"> <img class="img-fluid" src="{{ $web_assets }}/images/avatar/03.jpg" alt="">Alice Williams</a> </span>
                                   </div>
                                   <div class="blog-post-comment">
                                     <a href="#"> <i class="far fa-comment"></i>(45) </a>
@@ -202,7 +202,7 @@
                     <hr class="my-5" />
                     <div class="d-flex mb-3">
                       <div class="avatar avatar-lg">
-                        <img src="images/avatar/01.jpg" class="img-fluid rounded-circle" alt="...">
+                        <img src="{{ $web_assets }}/images/avatar/01.jpg" class="img-fluid rounded-circle" alt="...">
                       </div>
                       <div class="ms-3 border p-4">
                         <div class="d-flex">
@@ -214,7 +214,7 @@
                     </div>
                     <div class="d-flex mb-3 ms-5">
                       <div class="avatar avatar-lg">
-                        <img src="images/avatar/02.jpg" class="img-fluid rounded-circle" alt="...">
+                        <img src="{{ $web_assets }}/images/avatar/02.jpg" class="img-fluid rounded-circle" alt="...">
                       </div>
                       <div class="ms-3 border p-4">
                         <div class="d-flex">
@@ -226,7 +226,7 @@
                     </div>
                     <div class="d-flex mb-3 ms-5">
                       <div class="avatar avatar-lg">
-                        <img src="images/avatar/01.jpg" class="img-fluid rounded-circle" alt="...">
+                        <img src="{{ $web_assets }}/images/avatar/01.jpg" class="img-fluid rounded-circle" alt="...">
                       </div>
                       <div class="ms-3 border p-4">
                         <div class="d-flex">
@@ -238,7 +238,7 @@
                     </div>
                     <div class="d-flex mb-3">
                       <div class="avatar avatar-lg">
-                        <img src="images/avatar/04.jpg" class="img-fluid rounded-circle" alt="...">
+                        <img src="{{ $web_assets }}/images/avatar/04.jpg" class="img-fluid rounded-circle" alt="...">
                       </div>
                       <div class="ms-3 border p-4">
                         <div class="d-flex">
@@ -311,7 +311,7 @@
                 </div>
                 <div class="d-flex mb-3 align-items-top">
                   <div class="avatar avatar-xl h-auto">
-                    <img class="img-fluid" src="images/blog/01.jpg" alt="">
+                    <img class="img-fluid" src="{{ $web_assets }}/images/blog/01.jpg" alt="">
                   </div>
                   <div class="ms-3">
                     <a class="text-dark" href="blog-detail.html"><b>25K Profit on a Self-Storage Property </b></a>
@@ -320,7 +320,7 @@
                 </div>
                 <div class="d-flex mb-3 align-items-top">
                   <div class="avatar avatar-xl h-auto">
-                    <img class="img-fluid" src="images/blog/02.jpg" alt="">
+                    <img class="img-fluid" src="{{ $web_assets }}/images/blog/02.jpg" alt="">
                   </div>
                   <div class="ms-3">
                     <a class="text-dark" href="blog-detail.html"><b>Boost Your Retirement Plan Real Villa </b></a>
@@ -329,7 +329,7 @@
                 </div>
                 <div class="d-flex align-items-top">
                   <div class="avatar avatar-xl h-auto">
-                    <img class="img-fluid" src="images/blog/03.jpg" alt="">
+                    <img class="img-fluid" src="{{ $web_assets }}/images/blog/03.jpg" alt="">
                   </div>
                   <div class="ms-3">
                     <a class="text-dark" href="blog-detail.html"><b>6 Smart Ways to Build Home Equity</b></a>
@@ -390,7 +390,7 @@
                       </div>
                       <div class="testimonial-author">
                         <div class="testimonial-avatar avatar avatar-lg me-3">
-                          <img class="img-fluid rounded-circle" src="images/avatar/01.jpg" alt="">
+                          <img class="img-fluid rounded-circle" src="{{ $web_assets }}/images/avatar/01.jpg" alt="">
                         </div>
                         <div class="testimonial-name">
                           <h6 class="text-primary">Mikah Hargrove</h6>
@@ -406,7 +406,7 @@
                       </div>
                       <div class="testimonial-author">
                         <div class="testimonial-avatar avatar avatar-lg me-3">
-                          <img class="img-fluid rounded-circle" src="images/avatar/02.jpg" alt="">
+                          <img class="img-fluid rounded-circle" src="{{ $web_assets }}/images/avatar/02.jpg" alt="">
                         </div>
                         <div class="testimonial-name">
                           <h6 class="text-primary">Joana williams</h6>
