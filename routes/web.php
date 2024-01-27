@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', [IndexController::class, 'index']);
 
 Route::prefix('web')->as('web.')->group(function () {
