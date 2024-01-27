@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 position-relative">
-                    <h1 class="text-white text-center mb-2">Create lasting wealth through Real Villa</h1>
+                    <h1 class="text-white text-center mb-2">Create lasting wealth through (company name)</h1>
                     <p class="lead text-center text-white mb-4 fw-normal">Take a step to realizing your dream. #TimeToMove
                     </p>
                     <div class="property-search-field bg-white">
@@ -180,9 +180,9 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="property-item">
                         <div class="property-image bg-overlay-gradient-04">
-                            
+
                                 <img class="img-fluid" src="{{ asset('property/images/' . (json_decode($latestProperty->images)[0] ?? '')) }}" alt="">
-                           
+
                             <div class="property-lable">
                                 <span class="badge badge-md bg-primary">Bungalow</span>
                                 <span class="badge badge-md bg-info">Sale </span>
@@ -208,7 +208,7 @@
                                     </div>
                                 @endif
                             </div>
-            
+
                             <div class="property-agent-popup">
                                 <a href="#"><i class="fas fa-camera"></i> 06</a>
                             </div>
@@ -218,7 +218,7 @@
                                 <h5 class="property-title"><a href="">{{$latestProperty->name}} </a></h5>
                                 <span class="property-address">
                                     <i class="fas fa-map-marker-alt fa-xs"></i>
-                                    @foreach ($latestProperties as $property) 
+                                    @foreach ($latestProperties as $property)
                                     {{ $property->address->street_address ?? 'No Address Available' }}
                                     @endforeach
                                 </span>
@@ -247,9 +247,9 @@
                     </div>
                 </div>
             @endforeach
-            
-               
-               
+
+
+
             </div>
         </div>
     </section>

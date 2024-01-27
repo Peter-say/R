@@ -6,8 +6,8 @@ footer-->
       <div class="row">
         <div class="col-lg-3 col-md-6">
           <div class="footer-contact-info">
-            <h5 class="text-primary mb-4">About real villa</h5>
-            <p class="text-white mb-4">Real Villa helped thousands of clients to find the right property for their needs.</p>
+            <h5 class="text-primary mb-4">About (company name)</h5>
+            <p class="text-white mb-4">(company name) helped thousands of clients to find the right property for their needs.</p>
             <ul class="list-unstyled mb-0">
               <li> <b> <i class="fas fa-map-marker-alt"></i></b><span>214 West Arnold St. New York, NY 10002</span> </li>
               <li> <b><i class="fas fa-microphone-alt"></i></b><span>(123) 345-6789</span> </li>
