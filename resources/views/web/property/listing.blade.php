@@ -19,7 +19,7 @@ breadcrumb -->
   </div>
   <!--=================================
   breadcrumb -->
-  
+
   <!--=================================
   Listing – grid view -->
   <section class="space-ptb">
@@ -192,28 +192,28 @@ breadcrumb -->
                 <h6>Recently listed properties</h6>
               </div>
               <div class="recent-list-item">
-                <img class="img-fluid" src="images/property/list/01.jpg" alt="">
+                <img class="img-fluid" src="{{ $web_assets }}/images/property/list/01.jpg" alt="">
                 <div class="recent-list-item-info">
                   <a class="address mb-2" href="property-detail-style-01.html">Awesome family home</a>
                   <span class="text-primary">$1,456,233 </span>
                 </div>
               </div>
               <div class="recent-list-item">
-                <img class="img-fluid" src="images/property/list/02.jpg" alt="">
+                <img class="img-fluid" src="{{ $web_assets }}/images/property/list/02.jpg" alt="">
                 <div class="recent-list-item-info">
                   <a class="address mb-2" href="property-detail-style-01.html">Contemporary apartment</a>
                   <span class="text-primary">$2,496,454 </span>
                 </div>
               </div>
               <div class="recent-list-item">
-                <img class="img-fluid" src="images/property/list/03.jpg" alt="">
+                <img class="img-fluid" src="{{ $web_assets }}/images/property/list/03.jpg" alt="">
                 <div class="recent-list-item-info">
                   <a class="address mb-2" href="property-detail-style-01.html">Family home for sale</a>
                   <span class="text-primary">$4,662,457 </span>
                 </div>
               </div>
               <div class="recent-list-item">
-                <img class="img-fluid" src="images/property/list/04.jpg" alt="">
+                <img class="img-fluid" src="{{ $web_assets }}/images/property/list/04.jpg" alt="">
                 <div class="recent-list-item-info">
                   <a class="address mb-2" href="property-detail-style-01.html">184 lexington avenue</a>
                   <span class="text-primary">$2,456,452 </span>
@@ -276,7 +276,7 @@ breadcrumb -->
             <div class="col-sm-6">
               <div class="property-item">
                 <div class="property-image bg-overlay-gradient-04">
-                  <img class="img-fluid" src="images/property/grid/01.jpg" alt="">
+                  <img class="img-fluid" src="{{ $web_assets }}/images/property/grid/01.jpg" alt="">
                   <div class="property-lable">
                     <span class="badge badge-md bg-primary">Bungalow</span>
                     <span class="badge badge-md bg-info">Sale </span>
@@ -284,7 +284,7 @@ breadcrumb -->
                   <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
                   <div class="property-agent">
                     <div class="property-agent-image">
-                      <img class="img-fluid" src="images/avatar/01.jpg" alt="">
+                      <img class="img-fluid" src="{{ $web_assets }}/images/avatar/01.jpg" alt="">
                     </div>
                     <div class="property-agent-info">
                       <a class="property-agent-name" href="#">Alice Williams</a>
@@ -324,14 +324,14 @@ breadcrumb -->
             <div class="col-sm-6">
               <div class="property-item">
                 <div class="property-image bg-overlay-gradient-04">
-                  <img class="img-fluid" src="images/property/grid/02.jpg" alt="">
+                  <img class="img-fluid" src="{{ $web_assets }}/images/property/grid/02.jpg" alt="">
                   <div class="property-lable">
                     <span class="badge badge-md bg-primary">Apartment</span>
                     <span class="badge badge-md bg-info">New </span>
                   </div>
                   <div class="property-agent">
                     <div class="property-agent-image">
-                      <img class="img-fluid" src="images/avatar/02.jpg" alt="">
+                      <img class="img-fluid" src="{{ $web_assets }}/images/avatar/02.jpg" alt="">
                     </div>
                     <div class="property-agent-info">
                       <a class="property-agent-name" href="#">John doe</a>
@@ -371,7 +371,7 @@ breadcrumb -->
             <div class="col-sm-6">
               <div class="property-item">
                 <div class="property-image bg-overlay-gradient-04">
-                  <img class="img-fluid" src="images/property/grid/03.jpg" alt="">
+                  <img class="img-fluid" src="{{ $web_assets }}/images/property/grid/03.jpg" alt="">
                   <div class="property-lable">
                     <span class="badge badge-md bg-primary">Summer House</span>
                     <span class="badge badge-md bg-info">Hot </span>
@@ -379,7 +379,7 @@ breadcrumb -->
                   <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
                   <div class="property-agent">
                     <div class="property-agent-image">
-                      <img class="img-fluid" src="images/avatar/03.jpg" alt="">
+                      <img class="img-fluid" src="{{ $web_assets }}/images/avatar/03.jpg" alt="">
                     </div>
                     <div class="property-agent-info">
                       <a class="property-agent-name" href="#">Felica queen</a>
@@ -419,14 +419,14 @@ breadcrumb -->
             <div class="col-sm-6">
               <div class="property-item">
                 <div class="property-image bg-overlay-gradient-04">
-                  <img class="img-fluid" src="images/property/grid/04.jpg" alt="">
+                  <img class="img-fluid" src="{{ $web_assets }}/images/property/grid/04.jpg" alt="">
                   <div class="property-lable">
                     <span class="badge badge-md bg-primary">Duplex</span>
                     <span class="badge badge-md bg-info">Hot </span>
                   </div>
                   <div class="property-agent">
                     <div class="property-agent-image">
-                      <img class="img-fluid" src="images/avatar/04.jpg" alt="">
+                      <img class="img-fluid" src="{{ $web_assets }}/images/avatar/04.jpg" alt="">
                     </div>
                     <div class="property-agent-info">
                       <a class="property-agent-name" href="#">Sara lisbon</a>
@@ -466,7 +466,7 @@ breadcrumb -->
             <div class="col-sm-6">
               <div class="property-item">
                 <div class="property-image bg-overlay-gradient-04">
-                  <img class="img-fluid" src="images/property/grid/05.jpg" alt="">
+                  <img class="img-fluid" src="{{ $web_assets }}/images/property/grid/05.jpg" alt="">
                   <div class="property-lable">
                     <span class="badge badge-md bg-primary">Penthouses</span>
                     <span class="badge badge-md bg-info">Rent </span>
@@ -474,7 +474,7 @@ breadcrumb -->
                   <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
                   <div class="property-agent">
                     <div class="property-agent-image">
-                      <img class="img-fluid" src="images/avatar/05.jpg" alt="">
+                      <img class="img-fluid" src="{{ $web_assets }}/images/avatar/05.jpg" alt="">
                     </div>
                     <div class="property-agent-info">
                       <a class="property-agent-name" href="#">Mellissa Doe</a>
@@ -514,14 +514,14 @@ breadcrumb -->
             <div class="col-sm-6">
               <div class="property-item">
                 <div class="property-image bg-overlay-gradient-04">
-                  <img class="img-fluid" src="images/property/grid/06.jpg" alt="">
+                  <img class="img-fluid" src="{{ $web_assets }}/images/property/grid/06.jpg" alt="">
                   <div class="property-lable">
                     <span class="badge badge-md bg-primary">Studio</span>
                     <span class="badge badge-md bg-info">New </span>
                   </div>
                   <div class="property-agent">
                     <div class="property-agent-image">
-                      <img class="img-fluid" src="images/avatar/06.jpg" alt="">
+                      <img class="img-fluid" src="{{ $web_assets }}/images/avatar/06.jpg" alt="">
                     </div>
                     <div class="property-agent-info">
                       <a class="property-agent-name" href="#">Michael Bean</a>
@@ -580,7 +580,7 @@ breadcrumb -->
   </section>
   <!--=================================
   Listing – grid view -->
-  
+
   <!--=================================
   newsletter -->
   <section class="py-5 bg-primary">
