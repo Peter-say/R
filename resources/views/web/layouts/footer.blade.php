@@ -40,7 +40,7 @@ footer-->
             <ul class="list-unstyled mb-0">
               <li>
                 <div class="footer-recent-list-item">
-                  <img class="img-fluid" src="{{$web_assets}}/images/property/list/01.jpg" alt="">
+                  <img class="img-fluid" src="{{asset("/web/images/property/list/01.jpg")}}" alt="">
                   <div class="footer-recent-list-item-info">
                     <h6 class="text-white"><a class="category font-md mb-2" href="property-detail-style-01.html">Awesome family home</a></h6>
                     <a class="address mb-2 font-sm" href="#">Vermont dr. hephzibah</a>
@@ -50,7 +50,7 @@ footer-->
               </li>
               <li>
                 <div class="footer-recent-list-item">
-                  <img class="img-fluid" src="{{$web_assets}}/images/property/list/02.jpg" alt="">
+                  <img class="img-fluid" src="{{asset("/web/images/property/list/02.jpg")}}" alt="">
                   <div class="footer-recent-list-item-info">
                     <h6 class="text-white"><a class="category font-md mb-2" href="property-detail-style-01.html">Lawn court villa</a></h6>
                     <a class="address mb-2 font-sm" href="#">Newport st. mebane, nc</a>
@@ -79,7 +79,7 @@ footer-->
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-4 text-center text-md-start">
-            <a href="index.html"><img class="img-fluid footer-logo" src="{{$web_assets}}/images/logo-light.svg" alt=""> </a>
+            <a href="index.html"><img class="img-fluid footer-logo" src="{{asset("/web/images/logo-light.svg")}}" alt=""> </a>
           </div>
           <div class="col-md-4 text-center my-3 mt-md-0 mb-md-0">
             <a id="back-to-top" class="back-to-top" href="#"><i class="fas fa-angle-double-up"></i> </a>

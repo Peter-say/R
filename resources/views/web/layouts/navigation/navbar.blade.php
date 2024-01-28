@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"><i class="fas fa-align-left"></i></button>
         <a class="navbar-brand" href="index.html">
-            <img class="img-fluid" src="{{ $web_assets }}/images/logo.svg" alt="logo">
+            <img class="img-fluid" src="{{asset("/web/images/logo.svg")}}" alt="logo">
         </a>
         <div class="navbar-collapse collapse justify-content-center">
             <ul class="nav navbar-nav">
