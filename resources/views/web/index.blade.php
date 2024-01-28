@@ -4,7 +4,7 @@
     <!--=================================
         banner -->
     <section class="banner bg-holder bg-overlay-black-30"
-        style="background-image: url({{ $web_assets }}/images/banner-01.jpg);">
+        style="background-image: url({{asset("/web/images/banner-01.jpg")}});">
         <div class="container">
             <div class="row">
                 <div class="col-12 position-relative">
@@ -191,7 +191,7 @@
                             <div class="property-agent">
                                 @if ($latestProperty->agent)
                                     <div class="property-agent-image">
-                                        <img class="img-fluid" src="{{ $web_assets }}/images/avatar/01.jpg" alt="">
+                                        <img class="img-fluid" src="{{asset("/web/images/avatar/01.jpg")}}" alt="">
                                     </div>
                                     <div class="property-agent-info">
                                         <a class="property-agent-name" href="#">{{ $latestProperty->agent->full_name }}</a>
@@ -278,7 +278,7 @@
                             <div class="property-offer">
                                 <div class="property-offer-item">
                                     <div class="property-offer-image bg-holder"
-                                        style="background: url({{ $web_assets }}/images/property/big-img-01.jpg);">
+                                        style="background: url({{asset("/web/images/property/big-img-01.jpg")}});">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-10 col-sm-12">
                                                 <div class="property-details">
@@ -327,7 +327,7 @@
                             <div class="property-offer">
                                 <div class="property-offer-item">
                                     <div class="property-offer-image bg-holder"
-                                        style="background: url({{ $web_assets }}/images/property/big-img-02.jpg);">
+                                        style="background: url({{asset("/web/images/property/big-img-02.jpg")}});">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-10 col-sm-12">
                                                 <div class="property-details">
@@ -383,7 +383,7 @@
     <!--=================================
             Feature -->
     <section class="space-ptb bg-holder-bottom building-space"
-        style="background-image: url({{ $web_assets }}/images/building-bg.png);">
+        style="background-image: url({{asset("/web/images/building-bg.png")}});">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-9">
@@ -465,7 +465,7 @@
 
     <!--=================================
           testimonial -->
-    <section class="testimonial-main bg-holder" style="background-image: url({{ $web_assets }}/images/bg/02.jpg);">
+    <section class="testimonial-main bg-holder" style="background-image: url({{asset("/web/images/bg/02.jpg")}});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -523,7 +523,7 @@
                     <div class="agent text-center">
                         <div class="agent-detail">
                             <div class="agent-avatar avatar avatar-xllll">
-                                <img class="img-fluid rounded-circle" src="{{ $web_assets }}/images/agent/01.jpg"
+                                <img class="img-fluid rounded-circle" src="{{asset("/web/images/agent/01.jpg")}}"
                                     alt="">
                             </div>
                             <div class="agent-info">
@@ -542,7 +542,7 @@
                     <div class="agent text-center">
                         <div class="agent-detail">
                             <div class="agent-avatar avatar avatar-xllll">
-                                <img class="img-fluid rounded-circle" src="{{ $web_assets }}/images/agent/02.jpg"
+                                <img class="img-fluid rounded-circle" src="{{asset("/web/images/agent/02.jpg")}}"
                                     alt="">
                             </div>
                             <div class="agent-info">
@@ -561,7 +561,7 @@
                     <div class="agent text-center">
                         <div class="agent-detail">
                             <div class="agent-avatar avatar avatar-xllll">
-                                <img class="img-fluid rounded-circle" src="{{ $web_assets }}/images/agent/03.jpg"
+                                <img class="img-fluid rounded-circle" src="{{asset("/web/images/agent/03.jpg")}}"
                                     alt="">
                             </div>
                             <div class="agent-info">
@@ -580,7 +580,7 @@
                     <div class="agent text-center">
                         <div class="agent-detail">
                             <div class="agent-avatar avatar avatar-xllll">
-                                <img class="img-fluid rounded-circle" src="{{ $web_assets }}/images/agent/04.jpg"
+                                <img class="img-fluid rounded-circle" src="{{asset("/web/images/agent/04.jpg")}}"
                                     alt="">
                             </div>
                             <div class="agent-info">
@@ -619,7 +619,7 @@
                         <div class="col-md-6 mb-4 mb-lg-0">
                             <a href="property-grid.html">
                                 <div class="location-item bg-overlay-gradient bg-holder"
-                                    style="background-image: url({{ $web_assets }}/images/location/01.jpg);">
+                                    style="background-image: url({{asset("/web/images/location/01.jpg")}});">
                                     <div class="location-item-info">
                                         <h5 class="location-item-title">Mumbai</h5>
                                         <span class="location-item-list">10 Properties</span>
@@ -630,7 +630,7 @@
                         <div class="col-md-6 mb-4 mb-md-0">
                             <a href="property-grid.html">
                                 <div class="location-item bg-overlay-gradient bg-holder"
-                                    style="background-image: url({{ $web_assets }}/images/location/02.jpg);">
+                                    style="background-image: url({{asset("/web/images/location/02.jpg")}});">
                                     <div class="location-item-info">
                                         <h5 class="location-item-title">Los angeles</h5>
                                         <span class="location-item-list">14 Properties</span>
@@ -641,7 +641,7 @@
                         <div class="col-lg-12 mt-0 mt-lg-4">
                             <a href="property-grid.html">
                                 <div class="location-item bg-overlay-gradient bg-holder"
-                                    style="background-image: url({{ $web_assets }}/images/location/04.jpg);">
+                                    style="background-image: url({{asset("/web/images/location/04.jpg")}});">
                                     <div class="location-item-info">
                                         <h5 class="location-item-title">Miami</h5>
                                         <span class="location-item-list">22 Properties</span>
@@ -724,7 +724,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 mt-5 mt-lg-0 text-center">
-                    <img class="img-fluid" src="{{ $web_assets }}/images/mobile-app.png" alt="">
+                    <img class="img-fluid" src="{{asset("/web/images/mobile-app.png")}}" alt="">
                 </div>
             </div>
         </div>
@@ -749,7 +749,7 @@
                 <div class="col-lg-4">
                     <div class="blog-post">
                         <div class="blog-post-image">
-                            <img class="img-fluid" src="{{ $web_assets }}/images/blog/01.jpg" alt="">
+                            <img class="img-fluid" src="{{asset("web/images/blog/01.jpg")}}" alt="">
                         </div>
                         <div class="blog-post-content">
                             <div class="blog-post-details">
@@ -770,7 +770,7 @@
                                 </div>
                                 <div class="blog-post-author">
                                     <span> By <a href="#"> <img class="img-fluid"
-                                                src="{{ $web_assets }}/images/avatar/01.jpg" alt="">Sara lisbon
+                                                src="{{asset("/web/images/avatar/01.jpg")}}" alt="">Sara lisbon
                                         </a> </span>
                                 </div>
                                 <div class="blog-post-comment">
@@ -783,7 +783,7 @@
                 <div class="col-lg-4 mt-4 mt-lg-0">
                     <div class="blog-post">
                         <div class="blog-post-image">
-                            <img class="img-fluid" src="{{ $web_assets }}/images/blog/02.jpg" alt="">
+                            <img class="img-fluid" src="{{asset("/web/images/blog/02.jpg")}}" alt="">
                         </div>
                         <div class="blog-post-content">
                             <div class="blog-post-details">
@@ -803,7 +803,7 @@
                                 </div>
                                 <div class="blog-post-author">
                                     <span> By <a href="#"> <img class="img-fluid"
-                                                src="{{ $web_assets }}/images/avatar/02.jpg" alt="">Anne
+                                                src="{{asset("/web/images/avatar/02.jpg")}}" alt="">Anne
                                             Smith</a> </span>
                                 </div>
                                 <div class="blog-post-comment">
@@ -816,7 +816,7 @@
                 <div class="col-lg-4 mt-4 mt-lg-0">
                     <div class="blog-post">
                         <div class="blog-post-image">
-                            <img class="img-fluid" src="{{ $web_assets }}/images/blog/03.jpg" alt="">
+                            <img class="img-fluid" src="{{asset("/web/images/blog/03.jpg")}}" alt="">
                         </div>
                         <div class="blog-post-content">
                             <div class="blog-post-details">
@@ -836,7 +836,7 @@
                                 </div>
                                 <div class="blog-post-author">
                                     <span> By <a href="#"> <img class="img-fluid"
-                                                src="{{ $web_assets }}/images/avatar/03.jpg" alt="">Alice
+                                                src="{{asset("/web/images/avatar/03.jpg")}}" alt="">Alice
                                             Williams</a> </span>
                                 </div>
                                 <div class="blog-post-comment">
