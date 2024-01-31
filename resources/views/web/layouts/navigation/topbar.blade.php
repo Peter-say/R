@@ -32,8 +32,11 @@
               </ul>
             </div>
             <div class="login d-inline-block">
-              <a data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Hello sign in<i class="fa fa-user ps-2"></i></a>
+              <a href="{{route('login')}}">Hello sign in<i class="fa fa-user ps-2"></i></a>
             </div>
+            {{-- <div class="login d-inline-block">
+              <a data-bs-toggle="modal" data-bs-target="#loginModal" href="#">Hello sign in<i class="fa fa-user ps-2"></i></a>
+            </div> --}}
           </div>
         </div>
       </div>

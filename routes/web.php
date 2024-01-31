@@ -40,7 +40,7 @@ Route::prefix('property')->as('property.')->group(function () {
 });
 
 Auth::routes();
-Route::prefix('dashboard')->as('dashboard.')->group(function () {
+Route::prefix('dashboard')->as('dashboard.')->middleware('auth')->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
 
     Route::prefix('profile')->as('profile.')->group(function () {
@@ -56,6 +56,7 @@ Route::prefix('dashboard')->as('dashboard.')->group(function () {
 
     Route::prefix('users')->as('users.')->group(function () {
         Route::get('/', [UsersIndexController::class, 'index']);
+        Route::delete('/{id}/delete', [UsersIndexController::class, 'delete'])->name('delete');
     });
 });
 Route::prefix('agent')->as('agent.')->group(function () {
