@@ -419,14 +419,14 @@ breadcrumb -->
             <div class="col-sm-6">
               <div class="property-item">
                 <div class="property-image bg-overlay-gradient-04">
-                  <img class="img-fluid" src="{{ $web_assets }}/images/property/grid/04.jpg" alt="">
+                  <img class="img-fluid" src="{{asset("/web/images/property/grid/04.jpg")}}" alt="">
                   <div class="property-lable">
                     <span class="badge badge-md bg-primary">Duplex</span>
                     <span class="badge badge-md bg-info">Hot </span>
                   </div>
                   <div class="property-agent">
                     <div class="property-agent-image">
-                      <img class="img-fluid" src="{{ $web_assets }}/images/avatar/04.jpg" alt="">
+                      <img class="img-fluid" src="{{asset("/web/images/avatar/04.jpg")}}" alt="">
                     </div>
                     <div class="property-agent-info">
                       <a class="property-agent-name" href="#">Sara lisbon</a>
@@ -466,7 +466,7 @@ breadcrumb -->
             <div class="col-sm-6">
               <div class="property-item">
                 <div class="property-image bg-overlay-gradient-04">
-                  <img class="img-fluid" src="{{ $web_assets }}/images/property/grid/05.jpg" alt="">
+                  <img class="img-fluid" src="{{asset("/web/images/property/grid/05.jpg")}}" alt="">
                   <div class="property-lable">
                     <span class="badge badge-md bg-primary">Penthouses</span>
                     <span class="badge badge-md bg-info">Rent </span>
@@ -474,7 +474,7 @@ breadcrumb -->
                   <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
                   <div class="property-agent">
                     <div class="property-agent-image">
-                      <img class="img-fluid" src="{{ $web_assets }}/images/avatar/05.jpg" alt="">
+                      <img class="img-fluid" src="{{asset("/web/images/avatar/05.jpg")}}" alt="">
                     </div>
                     <div class="property-agent-info">
                       <a class="property-agent-name" href="#">Mellissa Doe</a>

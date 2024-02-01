@@ -40,15 +40,11 @@ Route::prefix('property')->as('property.')->group(function () {
 });
 
 Auth::routes();
-Route::prefix('dashboard')->as('dashboard.')->middleware('auth')->group(function () {
+Route::prefix('dashboard')->as('dashboard.')->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
 
     Route::prefix('profile')->as('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'index']);
-        Route::put('/{id}/update', [ProfileController::class, 'update'])->name('update');
-    Route::get('change-password', [App\Http\Controllers\Dashboard\User\UpdatePasswordController::class, 'changePassword'])->name('change-password');
-    Route::post('update-password', [App\Http\Controllers\Dashboard\User\UpdatePasswordController::class, 'updatePassword'])->name('update-password');
-
     });
 
     Route::prefix('user')->as('user.')->group(function () {
@@ -60,7 +56,6 @@ Route::prefix('dashboard')->as('dashboard.')->middleware('auth')->group(function
 
     Route::prefix('users')->as('users.')->group(function () {
         Route::get('/', [UsersIndexController::class, 'index']);
-        Route::delete('/{id}/delete', [UsersIndexController::class, 'delete'])->name('delete');
     });
 });
 Route::prefix('agent')->as('agent.')->group(function () {

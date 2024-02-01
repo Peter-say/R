@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"><i class="fas fa-align-left"></i></button>
         <a class="navbar-brand" href="index.html">
-            <img class="img-fluid" src="{{ $web_assets }}/images/logo.svg" alt="logo">
+            <img class="img-fluid" src="{{asset("/web/images/logo.svg")}}" alt="logo">
         </a>
         <div class="navbar-collapse collapse justify-content-center">
             <ul class="nav navbar-nav">
@@ -147,9 +147,11 @@
                 </li>
             </ul>
         </div>
-       
         <div class="add-listing d-none d-sm-block">
-            <a class="btn btn-primary btn-md" href="submit-property.html"> <i class="fa fa-plus-circle"></i>Buy/Sell
+            <a class="btn btn-primary btn-md" href="{{route('login')}}">Login</a>
+        </div>
+        <div class="add-listing d-none d-sm-block">
+            <a class="btn btn-primary btn-md" href="submit-property.html"> <i class="fa fa-plus-circle"></i>Login
             </a>
         </div>
     </div>

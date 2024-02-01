@@ -10,19 +10,11 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(30);
+        $users = User::latest()->paginate(30);
         $agent = $users->where('role', 'agent');
         return view('dashboard.users.index', [
             'users' => $users,
             'agent' => $agent,
         ]);
-    }
-
-    public function delete($id)
-    {
-      $user = User::where('id', $id)->first();
-      dd($user->id);
-      $user->delete();
-      return back()->with('success_message', 'User Deleted Successfully');
     }
 }
