@@ -19,7 +19,7 @@
 
 
 
-    <link href="{{ $dashboard_assets }}/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet"
+    <link href="{{asset("/dashboard/vendor/bootstrap-select/dist/css/bootstrap-select.min.css")}}" rel="stylesheet"
         type="text/css" />
     <link href="{{ $dashboard_assets }}/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ $dashboard_assets }}/vendor/chartist/css/chartist.min.css" rel="stylesheet" type="text/css" />
