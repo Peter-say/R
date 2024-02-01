@@ -140,7 +140,9 @@
                             </div>
                         </div>
                     </div>
+					
                     <div class="col-xl-12">
+						@include('notifications.flash-messages')
                         <div class="table-responsive table-hover fs-14">
                             <table class="table table-hover display mb-4 dataTablesCard  card-table" id="example-5">
                                 <thead>
@@ -209,13 +211,13 @@
                                                            
                                                         @else
                                                             <form id="delete-user-form"
-                                                                action="{{ route('dashboard.users.delete', $user->id) }}"
+                                                                action="{{ route('dashboard.users.delete', ['id' => $user->id]) }}"
                                                                 method="post">
                                                                 @csrf
                                                                 @method('DELETE')
                                                             </form>
 
-                                                            <a onclick="return confirm('Are you sure you want to delete this user?') ? document.getElementById('delete-user-form').submit() : false;"
+                                                            <a onclick="return confirm('Are you sure you want to delete this user? If you delete this user, all the infomation assoiated with the this user will be deleted') ? document.getElementById('delete-user-form').submit() : false;"
                                                                 class="dropdown-item text-black" href="#">Delete
                                                                 User</a>
                                                         @endif
