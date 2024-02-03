@@ -29,12 +29,12 @@ class ProfileController extends Controller
            'age' => 'nullable|numeric',
            'year_of_expirience' => 'nullable|numeric',
            'bio' => 'nullable|string',
-           'phone_number' => 'required|string',
+           'phone_number' => 'nullable|string',
            'street_address' => 'nullable|string',
-           'city' => 'required|string',
-           'zip_code' => 'nullable|numeric',
-           'state' => 'required|string',
-           'country' => 'required|string',
+           'city' => 'nullable|string',
+           'zip_code' => 'nullable',
+           'state' => 'nullable|string',
+           'country' => 'nullable|string',
            'social_links' => 'nullable|url',
            'website' => 'nullable|url',
        ]);
@@ -61,7 +61,7 @@ class ProfileController extends Controller
            $user->avatar = $avatarFileName;
        }
    
-       $user->up([
+       $user->update([
            'avatar' => $avatarFileName,
            'first_name' => $request->first_name,
            'last_name' => $request->last_name,
@@ -77,8 +77,6 @@ class ProfileController extends Controller
            'zip_code' => $request->zip_code,
            'country' => $request->country,
        ]);
-       
-       $user->save();
        
    
        return back()->with('success_message', 'Profile Updated successfully');
