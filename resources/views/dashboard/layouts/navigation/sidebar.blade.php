@@ -13,8 +13,12 @@
 							<li><a href="{{route('dashboard.users.')}}">App Users</a></li>
 							<li><a href="{{route('dashboard.user.wishlists')}}">WishList</a></li>
 							<li><a href="{{route('dashboard.user.orders')}}">Order List</a></li>
-							<li><a href="">Customer</a></li>
-							<li><a href="property-details.html">Property Details</a></li>
+							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Property</a>
+								<ul aria-expanded="false">
+									<li><a href="page-error-400.html">Create</a></li>
+									<li><a href="{{route('dashboard.property.index')}}">View</a></li>
+								</ul>
+							</li>
 						</ul>
 					</li>
 					<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">

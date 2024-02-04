@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Dashboard\HomeController;
+use App\Http\Controllers\Dashboard\Property\PropertyController as DashboardPropertyController;
 use App\Http\Controllers\Dashboard\User\ProfileController;
+use App\Http\Controllers\Dashboard\User\UpdatePasswordController;
 use App\Http\Controllers\Dashboard\Users\IndexController as UsersIndexController;
 use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\WishlistController;
@@ -11,6 +13,7 @@ use App\Http\Controllers\Web\IndexController;
 use App\Http\Controllers\Web\PropertyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,13 +46,17 @@ Auth::routes();
 Route::prefix('dashboard')->as('dashboard.')->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
 
+        Route::resource( 'property', DashboardPropertyController::class);
+    
+
     Route::prefix('profile')->as('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'index']);
         Route::put('/{id}/update', [ProfileController::class, 'update'])->name('update');
-        Route::get('change-password', [App\Http\Controllers\Dashboard\User\UpdatePasswordController::class, 'changePassword'])->name('change-password');
-        Route::post('update-password', [App\Http\Controllers\Dashboard\User\UpdatePasswordController::class, 'updatePassword'])->name('update-password');
+        Route::get('change-password', [UpdatePasswordController::class, 'changePassword'])->name('change-password');
+        Route::post('update-password', [UpdatePasswordController::class, 'updatePassword'])->name('update-password');
     
     });
+
 
     Route::prefix('user')->as('user.')->group(function () {
         Route::get('/orders', [OrderController::class, 'index'])->name('orders');

@@ -110,9 +110,9 @@
 										<td><img class="img-fluid" src="{{ asset('web/images/agent/' . $user->avatar ) }}" alt=""></td>
 										<td class="text-ov">{{$user->full_name}}</td>
 										<td class="text-ov">{{$user->email}}</td>
-										<td>{{$user->phone_number}}</td>
-										<td>{{$user->role}}</td>
-										<td><span class="text-warning">{{$user->is_verified}}</span></td>
+										<td class="text-ov">{{$user->phone_number}}</td>
+										<td class="text-ov">{{$user->role}}</td>
+										<td class="text-ov"><span class="text-warning">{{$user->is_verified}}</span></td>
 										<td>
 											<div class="dropdown ml-auto">
 												<div class="btn-link" data-toggle="dropdown" >
