@@ -854,7 +854,7 @@
                                 <span class="text-black">{{ Auth::user()->full_name }}</span>
                                 <p class="fs-12 mb-0">{{ Auth::user()->role }}</p>
                             </div>
-                            <img src="{{ $dashboard_assets }}/images/profile/17.jpg" width="20"
+                            <img src="{{asset('users/avatar/' . Auth::user()->avatar) }}" width="20"
                                 alt="" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">

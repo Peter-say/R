@@ -25,15 +25,15 @@
                                 </div>
                                 <div class="profile-info">
 									<div class="profile-photo">
-										<img  src="{{$dashboard_assets}}/images/profile/profile.png" class="img-fluid rounded-circle" alt="">
+										<img  src="{{asset('users/avatar/' . $user->avatar)}}" class="img-fluid rounded-circle" alt="">
 									</div>
 									<div class="profile-details">
 										<div class="profile-name px-3 pt-2">
-											<h4 class="text-primary mb-0">Mitchell C. Shay</h4>
-											<p>UX / UI Designer</p>
+											<h4 class="text-primary mb-0">{{$user->full_name}}</h4>
+											<p>{{$user->role}}</p>
 										</div>
 										<div class="profile-email px-2 pt-2">
-											<h4 class="text-muted mb-0">hello@email.com</h4>
+											<h4 class="text-muted mb-0">{{$user->email}}</h4>
 											<p>Email</p>
 										</div>
 										<div class="dropdown ml-auto">
@@ -165,7 +165,7 @@
                                 <div class="profile-tab">
                                     <div class="custom-tab-1">
                                         <ul class="nav nav-tabs">
-                                            <li class="nav-item"><a href="#my-posts" data-toggle="tab" class="nav-link active show">Posts</a>
+                                            <li class="nav-item"><a href="#my-posts" data-toggle="tab" class="nav-link active show">Properties</a>
                                             </li>
                                             <li class="nav-item"><a href="#about-me" data-toggle="tab" class="nav-link">About Me</a>
                                             </li>
@@ -180,64 +180,31 @@
 														<a href="javascript:void()" class="btn btn-primary light px-3"><i class="fa fa-link"></i> </a>
                                                         <a href="javascript:void()" class="btn btn-primary light mr-1 px-3"><i class="fa fa-camera"></i> </a><a href="javascript:void()" class="btn btn-primary">Post</a>
                                                     </div>
-                                                    <div class="profile-uoloaded-post border-bottom-1 pb-5">
-                                                        <img  src="{{$dashboard_assets}}/images/profile/8.jpg" alt="" class="img-fluid">
-                                                        <a class="post-title" href="post-details.html">
-                                                            <h3 class="text-black">Collection of textile samples lay spread</h3>
-                                                        </a>
-                                                        <p>A wonderful serenity has take possession of my entire soul like these sweet morning of spare which enjoy whole heart.A wonderful serenity has take possession of my entire soul like these sweet morning
-                                                            of spare which enjoy whole heart.</p>
-                                                        <button class="btn btn-primary mr-2"><span class="mr-2"><i
-                                                                    class="fa fa-heart"></i></span>Like</button>
-                                                        <a href="post-details.html" class="btn btn-secondary">
-															<span class="mr-2"><i class="fa fa-reply"></i></span>Reply
-														</a>
-                                                    </div>
-                                                    <div class="profile-uoloaded-post border-bottom-1 pb-5">
-                                                        <img  src="{{$dashboard_assets}}/images/profile/9.jpg" alt="" class="img-fluid">
-                                                        <a class="post-title" href="post-details.html">
-                                                            <h3 class="text-black">Collection of textile samples lay spread</h3>
-                                                        </a>
-                                                        <p>A wonderful serenity has take possession of my entire soul like these sweet morning of spare which enjoy whole heart.A wonderful serenity has take possession of my entire soul like these sweet morning
-                                                            of spare which enjoy whole heart.</p>
-                                                        <button class="btn btn-primary mr-2"><span class="mr-2"><i
-                                                                    class="fa fa-heart"></i></span>Like</button>
-														<a href="post-details.html" class="btn btn-secondary">
-															<span class="mr-2"><i class="fa fa-reply"></i></span>Reply
-														</a>
-                                                    </div>
-                                                    <div class="profile-uoloaded-post">
-                                                        <img  src="{{$dashboard_assets}}/images/profile/8.jpg" alt="" class="img-fluid">
-                                                        <a class="post-title" href="post-details.html">
-															<h3 class="text-black">Collection of textile samples lay spread</h3>
-                                                        </a>
-                                                        <p>A wonderful serenity has take possession of my entire soul like these sweet morning of spare which enjoy whole heart.A wonderful serenity has take possession of my entire soul like these sweet morning
-                                                            of spare which enjoy whole heart.</p>
-                                                        <button class="btn btn-primary mr-2"><span class="mr-2"><i
-                                                                    class="fa fa-heart"></i></span>Like</button>
-                                                        <a href="post-details.html" class="btn btn-secondary">
-															<span class="mr-2"><i class="fa fa-reply"></i></span>Reply
-														</a>
-                                                    </div>
+                                                   @foreach ($user->property as $property)
+                                                   <div class="profile-uoloaded-post border-bottom-1 pb-5">
+                                                    <img  src="{{asset('property/images/'. (json_decode($property->images)[0] ?? ''))}}" alt="" class="img-fluid">
+                                                    <a class="post-title" href="post-details.html">
+                                                        <h3 class="text-black">{{$property->name}}</h3>
+                                                    </a>
+                                                    <p>{{$property->description}}.</p>
+                                                    <button class="btn btn-primary mr-2"><span class="mr-2"><i
+                                                                class="fa fa-heart"></i></span>View</button>
+                                                    <a href="#" class="btn btn-secondary">
+                                                        <span class="mr-2"><i class="fa fa-reply"></i></span>Edit
+                                                    </a>
+                                                </div>
+                                                   @endforeach
+                                                    
                                                 </div>
                                             </div>
                                             <div id="about-me" class="tab-pane fade">
                                                 <div class="profile-about-me">
                                                     <div class="pt-4 border-bottom-1 pb-3">
                                                         <h4 class="text-primary">About Me</h4>
-                                                        <p class="mb-2">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence was created for the bliss of souls like mine.I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
-                                                        <p>A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
+                                                        <p > {{$user->bio}}</p>
                                                     </div>
                                                 </div>
-                                                <div class="profile-skills mb-5">
-                                                    <h4 class="text-primary mb-2">Skills</h4>
-                                                    <a href="javascript:void()" class="btn btn-primary light btn-xs mb-1">Admin</a>
-                                                    <a href="javascript:void()" class="btn btn-primary light btn-xs mb-1">Dashboard</a>
-                                                    <a href="javascript:void()" class="btn btn-primary light btn-xs mb-1">Photoshop</a>
-                                                    <a href="javascript:void()" class="btn btn-primary light btn-xs mb-1">Bootstrap</a>
-                                                    <a href="javascript:void()" class="btn btn-primary light btn-xs mb-1">Responsive</a>
-                                                    <a href="javascript:void()" class="btn btn-primary light btn-xs mb-1">Crypto</a>
-                                                </div>
+                                               
                                                 <div class="profile-lang  mb-5">
                                                     <h4 class="text-primary mb-2">Language</h4>
 													<a href="javascript:void()" class="text-muted pr-3 f-s-16"><i class="flag-icon flag-icon-us"></i> English</a> 
@@ -250,7 +217,7 @@
                                                         <div class="col-sm-3">
                                                             <h5 class="f-w-500">Name <span class="pull-right d-none d-sm-block">:</span></h5>
                                                         </div>
-                                                        <div class="col-sm-9"><span>Mitchell C.Shay</span>
+                                                        <div class="col-sm-9"><span>{{$user->full_name}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4 mb-sm-4">
@@ -258,7 +225,7 @@
                                                             <h5 class="f-w-500">Email <span class="pull-right d-none d-sm-block">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-sm-9"><span>example@examplel.com</span>
+                                                        <div class="col-sm-9"><span>{{$user->email}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4 mb-sm-4">
@@ -273,76 +240,207 @@
                                                             <h5 class="f-w-500">Age <span class="pull-right d-none d-sm-block">:</span>
                                                             </h5>
                                                         </div>
-                                                        <div class="col-sm-9"><span>27</span>
+                                                        <div class="col-sm-9"><span>{{$user->age ?? 'N/A'}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4 mb-sm-4">
                                                         <div class="col-sm-3">
                                                             <h5 class="f-w-500">Location <span class="pull-right d-none d-sm-block">:</span></h5>
                                                         </div>
-                                                        <div class="col-sm-9"><span>Rosemont Avenue Melbourne,
-                                                                Florida</span>
+                                                        <div class="col-sm-9"><span>{{$user->street_address ?? 'N/A'}}</span>
                                                         </div>
                                                     </div>
                                                     <div class="row mb-4 mb-sm-4">
                                                         <div class="col-sm-3">
                                                             <h5 class="f-w-500">Year Experience <span class="pull-right d-none d-sm-block">:</span></h5>
                                                         </div>
-                                                        <div class="col-sm-9"><span>07 Year Experiences</span>
+                                                        <div class="col-sm-9"><span>{{$user->year_of_experience ?? 'N/A'}}</span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div id="profile-settings" class="tab-pane fade">
                                                 <div class="pt-3">
+                                                    @include('notifications.flash-messages')
                                                     <div class="settings-form">
                                                         <h4 class="text-primary">Account Setting</h4>
-                                                        <form>
-                                                            <div class="form-row">
+                                                        <form action="{{route('dashboard.profile.update', $user->id)}}" enctype="multipart/form-data" method="post">
+                                                            @csrf @method('put')
+                                                            <div class="row">
                                                                 <div class="form-group col-md-6">
-                                                                    <label>Email</label>
-                                                                    <input type="email" placeholder="Email" class="form-control">
+                                                                    <label>First Name</label>
+                                                                    <input type="text" name="first_name"
+                                                                        value="{{ $user->first_name }}"
+                                                                        class="form-control @error('first_name') is-invalid @enderror">
+                                                                    @error('first_name')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
                                                                 </div>
                                                                 <div class="form-group col-md-6">
-                                                                    <label>Password</label>
-                                                                    <input type="password" placeholder="Password" class="form-control">
+                                                                    <label>Last Name</label>
+                                                                    <input type="text" name="last_name"
+                                                                        value="{{ $user->last_name }}"
+                                                                        class="form-control @error('last_name') is-invalid @enderror">
+                                                                    @error('last_name')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
                                                                 </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Address</label>
-                                                                <input type="text" placeholder="1234 Main St" class="form-control">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Address 2</label>
-                                                                <input type="text" placeholder="Apartment, studio, or floor" class="form-control">
-                                                            </div>
-                                                            <div class="form-row">
+    
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Phone Number</label>
+                                                                    <input type="text" name="phone_number"
+                                                                        name="{{ $user->phone_number }}"
+                                                                        class="form-control @error('phone_number') is-invalid @enderror">
+                                                                    @error('phone_number')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Age</label>
+                                                                    <input type="text" name="age"
+                                                                        name="{{ $user->phone_number }}"
+                                                                        class="form-control @error('age') is-invalid @enderror">
+                                                                    @error('age')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Year OF Expirience</label>
+                                                                    <input type="text" name="year_of_expirience"
+                                                                        name="{{ $user->phone_number }}"
+                                                                        class="form-control @error('year_of_expirience') is-invalid @enderror">
+                                                                    @error('year_of_expirience')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Upload Avatar</label>
+                                                                    <input type="file" name="avatar"
+                                                                        value="{{ $user->avatar }}" class="form-control"
+                                                                        @error('avatar') is-invalid @enderror>
+                                                                    @error('avater')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="form-group col-md-12">
+                                                                    <label>Bio</label>
+                                                                    <textarea name="bio" rows="10" cols="" class="form-control @error('bio') is-invalid @enderror">{{ $user->bio }}</textarea>
+                                                                    @error('bio')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Company</label>
+                                                                    <input type="text" name="company"
+                                                                        value="{{ $user->company }}"
+                                                                        class="form-control @error('company') is-invalid @enderror">
+                                                                    @error('company')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Website</label>
+                                                                    <input type="text" name="website"
+                                                                        value="{{ $user->website }}"
+                                                                        class="form-control @error('website') is-invalid @enderror">
+                                                                    @error('website')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Social Links</label>
+                                                                    <input type="text" name="social_links"
+                                                                        value="{{ $user->social_links }}"
+                                                                        class="form-control @error('social_links') is-invalid @enderror">
+                                                                    @error('social_link')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+    
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Street Address</label>
+                                                                    <input type="text" name="street_address"
+                                                                        value="{{ $user->street_address }}"
+                                                                        class="form-control @error('street_address') is-invalid @enderror">
+                                                                    @error('street_address')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
                                                                 <div class="form-group col-md-6">
                                                                     <label>City</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" name="city"
+                                                                        value="{{ $user->city }}"
+                                                                        class="form-control @error('city') is-invalid @enderror">
+                                                                    @error('city')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
                                                                 </div>
-                                                                <div class="form-group col-md-4">
+    
+                                                                <div class="form-group col-md-6">
                                                                     <label>State</label>
-                                                                    <select class="form-control" id="inputState">
-                                                                        <option selected="">Choose...</option>
-                                                                        <option>Option 1</option>
-                                                                        <option>Option 2</option>
-                                                                        <option>Option 3</option>
-                                                                    </select>
+                                                                    <input type="text"  name="state"
+                                                                        value="{{ $user->state }}"
+                                                                        class="form-control @error('state') is-invalid @enderror">
+                                                                    @error('state')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
                                                                 </div>
-                                                                <div class="form-group col-md-2">
-                                                                    <label>Zip</label>
-                                                                    <input type="text" class="form-control">
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Zip Code</label>
+                                                                    <input type="text" 
+                                                                        name="zip_code" value="{{ $user->zip_code }}"
+                                                                        class="form-control @error('zip_code') is-invalid @enderror">
+                                                                    @error('zip_code')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label>Country</label>
+                                                                    <input type="text"
+                                                                        name="country" value="{{ $user->country }}"
+                                                                        class="form-control @error('country') is-invalid @enderror">
+                                                                    @error('country')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+    
+    
+    
+                                                                <div class="form-group col-md-6 d-flex justify-content-center">
+                                                                    <button class="btn btn-primary w-100" type="submit">Update
+                                                                        Profile</button>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-group">
-                                                                <div class="custom-control custom-checkbox">
-																	<input type="checkbox" class="custom-control-input" id="gridCheck">
-																	<label class="custom-control-label" for="gridCheck"> Check me out</label>
-																</div>
-                                                            </div>
-                                                            <button class="btn btn-primary" type="submit">Sign
-                                                                in</button>
                                                         </form>
                                                     </div>
                                                 </div>

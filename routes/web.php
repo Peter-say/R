@@ -45,6 +45,10 @@ Route::prefix('dashboard')->as('dashboard.')->group(function () {
 
     Route::prefix('profile')->as('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'index']);
+        Route::put('/{id}/update', [ProfileController::class, 'update'])->name('update');
+        Route::get('change-password', [App\Http\Controllers\Dashboard\User\UpdatePasswordController::class, 'changePassword'])->name('change-password');
+        Route::post('update-password', [App\Http\Controllers\Dashboard\User\UpdatePasswordController::class, 'updatePassword'])->name('update-password');
+    
     });
 
     Route::prefix('user')->as('user.')->group(function () {
