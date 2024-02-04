@@ -165,7 +165,7 @@
                                 <div class="profile-tab">
                                     <div class="custom-tab-1">
                                         <ul class="nav nav-tabs">
-                                            <li class="nav-item"><a href="#my-posts" data-toggle="tab" class="nav-link active show">Posts</a>
+                                            <li class="nav-item"><a href="#my-posts" data-toggle="tab" class="nav-link active show">Properties</a>
                                             </li>
                                             <li class="nav-item"><a href="#about-me" data-toggle="tab" class="nav-link">About Me</a>
                                             </li>
@@ -180,45 +180,21 @@
 														<a href="javascript:void()" class="btn btn-primary light px-3"><i class="fa fa-link"></i> </a>
                                                         <a href="javascript:void()" class="btn btn-primary light mr-1 px-3"><i class="fa fa-camera"></i> </a><a href="javascript:void()" class="btn btn-primary">Post</a>
                                                     </div>
-                                                    <div class="profile-uoloaded-post border-bottom-1 pb-5">
-                                                        <img  src="{{$dashboard_assets}}/images/profile/8.jpg" alt="" class="img-fluid">
-                                                        <a class="post-title" href="post-details.html">
-                                                            <h3 class="text-black">Collection of textile samples lay spread</h3>
-                                                        </a>
-                                                        <p>A wonderful serenity has take possession of my entire soul like these sweet morning of spare which enjoy whole heart.A wonderful serenity has take possession of my entire soul like these sweet morning
-                                                            of spare which enjoy whole heart.</p>
-                                                        <button class="btn btn-primary mr-2"><span class="mr-2"><i
-                                                                    class="fa fa-heart"></i></span>Like</button>
-                                                        <a href="post-details.html" class="btn btn-secondary">
-															<span class="mr-2"><i class="fa fa-reply"></i></span>Reply
-														</a>
-                                                    </div>
-                                                    <div class="profile-uoloaded-post border-bottom-1 pb-5">
-                                                        <img  src="{{$dashboard_assets}}/images/profile/9.jpg" alt="" class="img-fluid">
-                                                        <a class="post-title" href="post-details.html">
-                                                            <h3 class="text-black">Collection of textile samples lay spread</h3>
-                                                        </a>
-                                                        <p>A wonderful serenity has take possession of my entire soul like these sweet morning of spare which enjoy whole heart.A wonderful serenity has take possession of my entire soul like these sweet morning
-                                                            of spare which enjoy whole heart.</p>
-                                                        <button class="btn btn-primary mr-2"><span class="mr-2"><i
-                                                                    class="fa fa-heart"></i></span>Like</button>
-														<a href="post-details.html" class="btn btn-secondary">
-															<span class="mr-2"><i class="fa fa-reply"></i></span>Reply
-														</a>
-                                                    </div>
-                                                    <div class="profile-uoloaded-post">
-                                                        <img  src="{{$dashboard_assets}}/images/profile/8.jpg" alt="" class="img-fluid">
-                                                        <a class="post-title" href="post-details.html">
-															<h3 class="text-black">Collection of textile samples lay spread</h3>
-                                                        </a>
-                                                        <p>A wonderful serenity has take possession of my entire soul like these sweet morning of spare which enjoy whole heart.A wonderful serenity has take possession of my entire soul like these sweet morning
-                                                            of spare which enjoy whole heart.</p>
-                                                        <button class="btn btn-primary mr-2"><span class="mr-2"><i
-                                                                    class="fa fa-heart"></i></span>Like</button>
-                                                        <a href="post-details.html" class="btn btn-secondary">
-															<span class="mr-2"><i class="fa fa-reply"></i></span>Reply
-														</a>
-                                                    </div>
+                                                   @foreach ($user->property as $property)
+                                                   <div class="profile-uoloaded-post border-bottom-1 pb-5">
+                                                    <img  src="{{asset('property/images/'. (json_decode($property->images)[0] ?? ''))}}" alt="" class="img-fluid">
+                                                    <a class="post-title" href="post-details.html">
+                                                        <h3 class="text-black">{{$property->name}}</h3>
+                                                    </a>
+                                                    <p>{{$property->description}}.</p>
+                                                    <button class="btn btn-primary mr-2"><span class="mr-2"><i
+                                                                class="fa fa-heart"></i></span>View</button>
+                                                    <a href="#" class="btn btn-secondary">
+                                                        <span class="mr-2"><i class="fa fa-reply"></i></span>Edit
+                                                    </a>
+                                                </div>
+                                                   @endforeach
+                                                    
                                                 </div>
                                             </div>
                                             <div id="about-me" class="tab-pane fade">
