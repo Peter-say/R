@@ -151,7 +151,7 @@
             <a class="btn btn-primary btn-md" href="{{route('login')}}">Login</a>
         </div>
         <div class="add-listing d-none d-sm-block">
-            <a class="btn btn-primary btn-md" href="submit-property.html"> <i class="fa fa-plus-circle"></i>Login
+            <a class="btn btn-primary btn-md" href="submit-property.html"> <i class="fa fa-plus-circle"></i>Add
             </a>
         </div>
     </div>
