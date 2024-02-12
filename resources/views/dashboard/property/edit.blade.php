@@ -5,6 +5,14 @@
         .required-field {
             color: red;
         }
+
+        .post-note {
+            color: rgb(255, 251, 0);
+        }
+
+        h4 {
+            color: white;
+        }
     </style>
 
     <div class="content-body">
@@ -25,9 +33,9 @@
                 <input type="hidden" name="uuid" value="{{ $property->uuid }}">
                 <div class="row">
                     <div class="col-xl-12 col-xxl-12">
-                        <div class="card">
+                        <div class="card bg-dark text-white">
                             <div class="card-header">
-                                <h4 class="card-title">Edit Property</h4>
+                                <h4 class="card-title text-white">Edit Property</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -262,9 +270,11 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label>Description </span></label>
-                                            <textarea name="meta_description" rows="4"
+                                            <label>Meta Description (Post Sumamary) </span></label>
+                                            <textarea name="meta_description" rows="2"
                                                 class="form-control @error('meta_description') is-invalid @enderror">{{ $property->meta_description }}</textarea>
+                                            <small class="post-note">A recommended meta description should not be more than 150 characters</small>
+
                                             @error('meta_description')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -277,6 +287,8 @@
                                             <label>Permalink(URL) <span class="required-field">*</span></label>
                                             <input type="text" name="slug" required value="{{ $property->slug }}"
                                                 class="form-control @error('slug') is-invalid @enderror">
+                                            <small class="post-note">Use hyphen to join the in the url together</small>
+
                                             @error('slug')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -389,7 +401,7 @@
 
                 <div class="row">
                     <div class="col-xl-12 col-xxl-12">
-                        <div class="card">
+                        <div class="card bg-dark text-white">
                             <div class="card-header">
                                 <h4 class="card-title">Edit Property Address</h4>
                             </div>
@@ -488,7 +500,7 @@
 
                 <div class="row">
                     <div class="col-xl-12 col-xxl-12">
-                        <div class="card">
+                        <div class="card bg-dark text-white">
                             <div class="card-header">
                                 <h4 class="card-title">Enter Property Amenities</h4>
                             </div>

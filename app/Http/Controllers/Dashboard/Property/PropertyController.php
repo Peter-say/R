@@ -9,6 +9,7 @@ use App\Models\Property;
 use App\Services\Property\PropertyService;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PropertyController extends Controller
 {
@@ -28,17 +29,28 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::user();
+        $categories = Category::get();
+        $boolOptions = StatusConstants::BOOL_OPTIONS;
+        $statusOptions = StatusConstants::ACTIVE_OPTIONS;
+        $stockOptions = StatusConstants::STOCK_OPTIONS;
+        return view('dashboard.property.create', [
+            'boolOptions' => $boolOptions,
+            'statusOptions' => $statusOptions,
+            'stockOptions' => $stockOptions,
+            'categories' => $categories,
+            'user' => $user,
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         // dd($request->all());
         try {
-            (new PropertyService)->storeProperty($request, $id);
+            (new PropertyService)->storeProperty($request);
             return redirect()->route('dashboard.property.index')->with('success_message', 'Property created successfully');
         } catch (\Illuminate\Database\QueryException $e) {
             // Handle database-related exception

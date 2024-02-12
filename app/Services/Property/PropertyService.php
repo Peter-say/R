@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 class PropertyService
 {
 
-    private function validateData(Request $request, $id)
+    private function validateData(Request $request)
     {
         return $request->validate([
             'category_id' => 'required|exists:categories,id',
@@ -38,18 +38,18 @@ class PropertyService
             'meta_keyword' => 'nullable|string',
             'stock_status' => 'required|string',
             'status' => 'string',
-            'is_featured' => 'string', // assuming 'is_featured' should be one of these values
-            'is_trending' => 'string', // assuming 'is_trending' should be one of these values
+            'is_featured' => 'string', 
+            'is_trending' => 'string',
         ]);
     }
 
 
 
-    public function storeProperty(Request $request, $id)
+    public function storeProperty(Request $request)
     {
 
         // Validate the incoming data
-        $this->validateData($request, $id);
+        $this->validateData($request);
 
         // Process images and store paths in $imagePaths
         $imagePaths = [];
@@ -75,6 +75,7 @@ class PropertyService
            
             'category_id' => $request->input('category_id'),
             'user_id' => $request->input('user_id'),
+            'uuid' => $this->generateUUID(),
             'address_id' => $address->id,
             'name' => $request->input('name'),
             'slug' => Str::slug($request->input('name')),
@@ -94,6 +95,8 @@ class PropertyService
             'meta_description' => $request->input('meta_description'),
             'meta_keyword' => $request->input('meta_keyword'),
             'stock_status' => $request->input('stock_status'),
+            'is_featured' => $request->input('is_featured'),
+            'is_trending' => $request->input('is_trending'),
             'status' => $request->input('status', 'active'), // Default value if not provided
         ]);
 
@@ -160,6 +163,8 @@ class PropertyService
             'meta_description' => $request->input('meta_description'),
             'meta_keyword' => $request->input('meta_keyword'),
             'stock_status' => $request->input('stock_status'),
+            'is_featured' => $request->input('is_featured'),
+            'is_trending' => $request->input('is_trending'),
             'status' => $request->input('status', 'Active'), // Default value if not provided
         ]);
 
@@ -172,5 +177,12 @@ class PropertyService
         }
         // Redirect the property
         return $property;
+    }
+
+    private function generateUUID()
+    {
+        $uuid = Str::uuid();
+        $shortUUID = str_replace('-', '', $uuid->toString());
+        return substr($shortUUID, 0, 12);
     }
 }

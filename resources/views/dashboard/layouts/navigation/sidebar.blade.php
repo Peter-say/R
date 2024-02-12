@@ -15,7 +15,7 @@
 							<li><a href="{{route('dashboard.user.orders')}}">Order List</a></li>
 							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Property</a>
 								<ul aria-expanded="false">
-									<li><a href="page-error-400.html">Create</a></li>
+									<li><a href="{{route('dashboard.property.create')}}">Create</a></li>
 									<li><a href="{{route('dashboard.property.index')}}">View</a></li>
 								</ul>
 							</li>
