@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('property_specifications', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('property_id')->nullable()->constrained('properties');
-            $table->string('feature');
-            $table->timestamps();
+        Schema::table('properties', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('property_specifications');
+        Schema::table('properties', function (Blueprint $table) {
+            //
+        });
     }
 };

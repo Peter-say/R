@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard\Property;
 
+use App\Constants\StatusConstants;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Property;
+use App\Services\Property\PropertyService;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -14,7 +17,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::latest()->paginate('50');
+        $properties = Property::paginate('50');
         return view('dashboard.property.list', [
             'properties' => $properties,
         ]);
@@ -31,9 +34,19 @@ class PropertyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        // dd($request->all());
+        try {
+            (new PropertyService)->storeProperty($request, $id);
+            return redirect()->route('dashboard.property.index')->with('success_message', 'Property created successfully');
+        } catch (\Illuminate\Database\QueryException $e) {
+            // Handle database-related exception
+            return back()->with('error_message', 'Database error: ' . $e->getMessage());
+        } catch (\Exception $e) {
+            
+            return redirect()->back()->with('error_message', 'Something went wrong while trying to create the Property' . $e->getMessage());
+        }
     }
 
     /**
@@ -49,7 +62,18 @@ class PropertyController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categories = Category::get();
+        $boolOptions = StatusConstants::BOOL_OPTIONS;
+        $statusOptions = StatusConstants::ACTIVE_OPTIONS;
+        $stockOptions = StatusConstants::STOCK_OPTIONS;
+        $property = Property::where('id',$id)->first();
+        return view('dashboard.property.edit', [
+            'property' => $property,
+            'boolOptions' => $boolOptions,
+            'statusOptions' => $statusOptions,
+            'stockOptions' => $stockOptions,
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -57,7 +81,16 @@ class PropertyController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // dd($request->all());
+        try {
+            (new PropertyService)->updateProperty($request, $id);
+            return redirect()->route('dashboard.property.index')->with('success_message', 'Propery updated successfully');
+        } catch (\Illuminate\Database\QueryException $e) {
+            // Handle database-related exception
+            return back()->with('error_message', 'Database error: ' . $e->getMessage());
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error_message', 'Something went wrong while trying to updating the Propery' . $e->getMessage());
+        }
     }
 
     /**
@@ -65,10 +98,11 @@ class PropertyController extends Controller
      */
     public function destroy(string $id)
     {
-        $property = Property::find($id);
-
+        $property = Property::withTrashed()->findOrFail($id);
+        dd($property);
+        $property->specifications()->delete();
         if ($property) {
-            $property->delete();
+            $property->forceDelete();
             return back()->with('success_message', 'Property deleted successfully');
         } else {
             return back()->with('error_message', 'Property not found');

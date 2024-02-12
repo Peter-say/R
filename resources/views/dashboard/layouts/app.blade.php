@@ -27,6 +27,11 @@
     <link href="{{ $dashboard_assets }}/vendor/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css" />
     <link href="{{ $dashboard_assets }}/css/style.css" rel="stylesheet" type="text/css" />
 
+    <link href="{{ $dashboard_assets }}/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ $dashboard_assets }}/vendor/jquery-smartwizard/dist/css/smart_wizard.min.css" rel="stylesheet"
+        type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 
 </head>
@@ -66,18 +71,20 @@
     <!--**********************************
         Scripts
     ***********************************-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ $dashboard_assets }}/vendor/global/global.min.js" type="text/javascript"></script>
-<script src="{{ $dashboard_assets }}/vendor/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript"></script>
-<script src="{{ $dashboard_assets }}/vendor/chart.js/Chart.bundle.min.js" type="text/javascript"></script>
-<script src="{{ $dashboard_assets }}/vendor/apexchart/apexchart.js" type="text/javascript"></script>
-<script src="{{ $dashboard_assets }}/vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>
-<script src="{{ $dashboard_assets }}/vendor/jqvmap/js/jquery.vmap.min.js" type="text/javascript"></script>
-<script src="{{ $dashboard_assets }}/vendor/jqvmap/js/jquery.vmap.world.js" type="text/javascript"></script>
-<script src="{{ $dashboard_assets }}/vendor/peity/jquery.peity.min.js" type="text/javascript"></script>
-<script src="{{ $dashboard_assets }}/js/dashboard/dashboard-1.js" type="text/javascript"></script>
-<script src="{{ $dashboard_assets }}/js/custom.min.js" type="text/javascript"></script>
-<script src="{{ $dashboard_assets }}/js/deznav-init.js" type="text/javascript"></script>
-<!-- <script src="//omah.dexignzone.com/laravel/demo/js/custom.min.js" type="text/javascript"></script>
+    <script src="{{ $dashboard_assets }}/vendor/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript">
+    </script>
+    <script src="{{ $dashboard_assets }}/vendor/chart.js/Chart.bundle.min.js" type="text/javascript"></script>
+    <script src="{{ $dashboard_assets }}/vendor/apexchart/apexchart.js" type="text/javascript"></script>
+    <script src="{{ $dashboard_assets }}/vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>
+    <script src="{{ $dashboard_assets }}/vendor/jqvmap/js/jquery.vmap.min.js" type="text/javascript"></script>
+    <script src="{{ $dashboard_assets }}/vendor/jqvmap/js/jquery.vmap.world.js" type="text/javascript"></script>
+    <script src="{{ $dashboard_assets }}/vendor/peity/jquery.peity.min.js" type="text/javascript"></script>
+    <script src="{{ $dashboard_assets }}/js/dashboard/dashboard-1.js" type="text/javascript"></script>
+    <script src="{{ $dashboard_assets }}/js/custom.min.js" type="text/javascript"></script>
+    <script src="{{ $dashboard_assets }}/js/deznav-init.js" type="text/javascript"></script>
+    <!-- <script src="//omah.dexignzone.com/laravel/demo/js/custom.min.js" type="text/javascript"></script>
 <script src="//omah.dexignzone.com/laravel/demo/js/deznav-init.js" type="text/javascript"></script> -->
 
 </body>

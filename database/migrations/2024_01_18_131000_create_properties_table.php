@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique(); // Ensure slugs are unique
             $table->json('images')->nullable(); // JSON array of room images
-            $table->json('features'); // Store amenities as a JSON array
             $table->decimal('price', 10, 2);
             $table->text('description');
             $table->string('property_video')->nullable();

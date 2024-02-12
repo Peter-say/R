@@ -19,7 +19,7 @@ class PropertyAddressFactory extends Factory
             $faker = \Faker\Factory::create();
         return [
             'street_address' => $faker->streetAddress,
-            'state_county' => $faker->state,
+            'state' => $faker->state,
             'area' => $faker->citySuffix,
             'city' => $faker->city,
             'zip' => $faker->postcode,

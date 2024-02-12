@@ -54,10 +54,10 @@
                                     @foreach ($properties as $property)
                                       @php
                                          $status_color = '';
-                                          if( $property->status == 'active'){
+                                          if( $property->status == 'Active'){
                                             $status_color  = 'badge light badge-success';
                                           }
-                                          if( $property->status == 'inactive'){
+                                          if( $property->status == 'Inactive'){
                                             $status_color  = 'badge light badge-danger';
                                           }
                                       @endphp
@@ -97,10 +97,10 @@
                                                     </svg>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Edit</a>
+                                                    <a class="dropdown-item" href="{{route('dashboard.property.edit', $property->id)}}">Edit</a>
                                                     <form action="{{route('dashboard.property.destroy', $property->id)}}" id="delete-product-form" method="post">
                                                         @csrf @method('DELETE')
-                                                        <a class="dropdown-item" onclick="confirmDelete()">Delete</a>
+                                                        <a style="cursor: pointer" class="dropdown-item" onclick="confirmDelete()">Delete</a>
                                                     </form>
                                                     
                                                 </div>

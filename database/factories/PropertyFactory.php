@@ -73,7 +73,6 @@ class PropertyFactory extends Factory
             'slug' => Str::slug($name),
             'images' => $serializedImagePaths,
             'property_video' => "https://www.youtube.com/embed/$propertyVideoId",
-            'features' => json_encode($faker->words(5)),
             'price' => $faker->randomFloat(2, 1000, 500000),
             'description' => $faker->paragraph,
             'size' => $faker->numberBetween(500, 5000),
@@ -89,7 +88,7 @@ class PropertyFactory extends Factory
             'meta_description' => $faker->sentence,
             'meta_keyword' => $faker->word,
             'stock_status' => $faker->randomElement(['Rent', 'Sell']),
-            'status' => 'active',
+            'status' => 'Active',
             'created_at' => now(),
             'updated_at' => now(),
         ];
@@ -99,18 +98,18 @@ class PropertyFactory extends Factory
     {
         return $this->afterCreating(function (Property $property) {
             $property_specifications = [
-                ['name' => 'Air Conditioning'],
-                ['name' => 'Laundry'],
-                ['name' => 'Barbeque'],
-                ['name' => 'Gym'],
-                ['name' => 'Refrigerator'],
-                ['name' => 'Swimming Pool'],
-                ['name' => 'WiFi'],
+                ['feature' => 'Air Conditioning'],
+                ['feature' => 'Laundry'],
+                ['feature' => 'Barbeque'],
+                ['feature' => 'Gym'],
+                ['feature' => 'Refrigerator'],
+                ['feature' => 'Swimming Pool'],
+                ['feature' => 'WiFi'],
             ];
     
             foreach ($property_specifications as $spec) {
                 $property->specifications()->create([
-                    'name' => $spec['name'],
+                    'feature' => $spec['feature'],
                 ]);
             }
         });
