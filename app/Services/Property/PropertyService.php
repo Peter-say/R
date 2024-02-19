@@ -8,6 +8,7 @@ use App\Models\PropertyAddress;
 use App\Models\PropertySpecification;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PropertyService
@@ -21,7 +22,7 @@ class PropertyService
             'address_id' => 'nullable|exists:property_addresses,id',
             'name' => 'required|string|max:255',
             'slug' => 'required|string',
-            'images.*' => 'nullable|json',
+            'images.*' => 'nullable|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'price' => 'required|numeric|min:0',
             'description' => 'required|string',
             'property_video' => 'nullable|string',
@@ -37,9 +38,9 @@ class PropertyService
             'meta_description' => 'nullable|string',
             'meta_keyword' => 'nullable|string',
             'stock_status' => 'required|string',
-            'status' => 'string',
-            'is_featured' => 'string', 
-            'is_trending' => 'string',
+            'status' => 'nullable',
+            'is_featured' => 'nullable',
+            'is_trending' => 'nullable',
         ]);
     }
 
@@ -55,14 +56,16 @@ class PropertyService
         $imagePaths = [];
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
-                $imagePaths[] = FileHelpers::saveImageRequest($image, 'property/images');
+                $avatarDirectory = 'property/images';
+                Storage::disk('public')->makeDirectory($avatarDirectory);
+                $imagePaths[] = FileHelpers::saveImageRequest($request->file('avatar'), $avatarDirectory);
             }
         }
 
-         // Create PropertyAddress record
-         $address = PropertyAddress::create([
+        // Create PropertyAddress record
+        $address = PropertyAddress::create([
             'street_address' => $request->input('street_address'),
-            'state' => $request->input('county'),
+            'state' => $request->input('state'),
             'area' => $request->input('area'),
             'city' => $request->input('city'),
             'zip' => $request->input('zip'),
@@ -72,7 +75,7 @@ class PropertyService
 
         // Create a new property using the validated data
         $property = Property::create([
-           
+
             'category_id' => $request->input('category_id'),
             'user_id' => $request->input('user_id'),
             'uuid' => $this->generateUUID(),
@@ -95,9 +98,9 @@ class PropertyService
             'meta_description' => $request->input('meta_description'),
             'meta_keyword' => $request->input('meta_keyword'),
             'stock_status' => $request->input('stock_status'),
-            'is_featured' => $request->input('is_featured'),
-            'is_trending' => $request->input('is_trending'),
-            'status' => $request->input('status', 'active'), // Default value if not provided
+            'is_featured' => $request->input('is_featured', 'No'),
+            'is_trending' => $request->input('is_trending', 'No'),
+            'status' => $request->input('status', 'Active'), // Default value if not provided
         ]);
 
         foreach ($request->input('feature') as $feature) {
@@ -114,23 +117,14 @@ class PropertyService
 
     public function updateProperty(Request $request, $id)
     {
-
         // Validate the incoming data
         $this->validateData($request, $id);
 
-       
-        // Process images and store paths in $imagePaths
-        $imagePaths = [];
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $imagePaths[] = FileHelpers::saveImageRequest($image, 'property/images');
-            }
-        }
+        // Retrieve the property
+        $property = Property::findOrFail($id);
 
-        $property = Property::FindOrFail($id);
-
-         // Create PropertyAddress record
-         $address = PropertyAddress::updateOrcreate([
+        // Update the property address
+        $address = PropertyAddress::updateOrCreate([
             'street_address' => $request->input('street_address'),
             'state' => $request->input('state'),
             'area' => $request->input('area'),
@@ -139,7 +133,24 @@ class PropertyService
             'country' => $request->input('country'),
         ]);
 
+        // Process images and store paths in $imagePaths
+        $imagePaths = [];
+        if ($request->hasFile('images')) {
+            // Save the paths of the new images
+            foreach ($request->file('images') as $image) {
+                $avatarDirectory = 'property/images';
+                Storage::disk('public')->makeDirectory($avatarDirectory);
+                $imagePaths[] = FileHelpers::saveImageRequest($request->file('avatar'), $avatarDirectory);
+            }
 
+            // Delete old images if new images are provided
+            FileHelpers::deleteImages(json_decode($property->images, true));
+        } else {
+            // No new images provided, retain the existing ones
+            $imagePaths = json_decode($property->images, true);
+        }
+
+        // Update the property details
         $property->update([
             'uuid' => $request->input('uuid'),
             'category_id' => $request->input('category_id'),
@@ -163,21 +174,26 @@ class PropertyService
             'meta_description' => $request->input('meta_description'),
             'meta_keyword' => $request->input('meta_keyword'),
             'stock_status' => $request->input('stock_status'),
-            'is_featured' => $request->input('is_featured'),
-            'is_trending' => $request->input('is_trending'),
-            'status' => $request->input('status', 'Active'), // Default value if not provided
+            'is_featured' => $request->input('is_featured', 'No'),
+            'is_trending' => $request->input('is_trending', 'No'),
+            'status' => $request->input('status', 'Active'),
         ]);
 
-        $property->specifications()->delete(); // Delete existing specifications
+        // Delete existing property specifications
+        $property->specifications()->delete();
+
+        // Create new property specifications
         foreach ($request->input('feature') as $feature) {
             PropertySpecification::create([
                 'property_id' => $property->id,
                 'feature' => $feature,
             ]);
         }
+
         // Redirect the property
         return $property;
     }
+
 
     private function generateUUID()
     {

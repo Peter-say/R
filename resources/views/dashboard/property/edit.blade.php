@@ -27,7 +27,7 @@
             </div>
             <!-- row -->
             @include('notifications.flash-messages')
-            <form action="{{ route('dashboard.property.update', $property->id) }}" method="post">
+            <form action="{{ route('dashboard.property.update', $property->id) }}" enctype="multipart/form-data" method="post">
                 @csrf @method('PUT')
                 <input type="hidden" name="user_id" value="{{ $property->user->id }}">
                 <input type="hidden" name="uuid" value="{{ $property->uuid }}">
@@ -178,19 +178,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                                        <div class="form-group">
-                                            <label>Type <span class="required-field">*</span></label>
-
-                                            <input type="text" name="type" required value="{{ $property->type }}"
-                                                class="form-control @error('type') is-invalid @enderror">
-                                            @error('type')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
+                   
 
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">

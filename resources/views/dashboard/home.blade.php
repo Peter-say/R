@@ -74,7 +74,7 @@
                             $customers = $all_users->where('role', 'LIKE', 'User')->count();
                             $agents = $all_users->where('role', 'LIKE', 'agent')->count();
 
-                            $percentage_for_sale = $total_properties_count != 0 ? ($property_for_sale_count / $total_properties_count) * 100 : 0;
+                           
                             $percentage_per_customers = $total_users != 0 ? ($customers / $total_users) * 100 : 0;
                             $percentage_per_agents = $total_users != 0 ? ($agents / $total_users) * 100 : 0;
 
@@ -130,7 +130,7 @@
                                     <div class="media align-items-center">
                                         <div class="media-body mr-3">
                                             <h2 class="fs-36 text-black font-w600">
-                                                {{ number_format($percentage_per_customers) }}</h2>
+                                                {{ number_format($customers) }}</h2>
                                             <p class="fs-18 mb-0 text-black font-w500">Customers</p>
                                             {{-- <span class="fs-13">Target 3k/month</span> --}}
                                         </div>
@@ -152,7 +152,7 @@
                                     <div class="media align-items-center">
                                         <div class="media-body mr-3">
                                             <h2 class="fs-36 text-black font-w600">
-                                                {{ number_format($percentage_per_agents) }}</h2>
+                                                {{ number_format($agents) }}</h2>
                                             <p class="fs-18 mb-0 text-black font-w500">Agents</p>
                                             {{-- <span class="fs-13">Target 3k/month</span> --}}
                                         </div>

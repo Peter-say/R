@@ -34,6 +34,7 @@
                                         <th><strong>CREATED BY</strong></th>
                                         <th><strong>ADDRESS LOCATED</strong></th>
                                         <th><strong>NAME</strong></th>
+                                        <th><strong>IMAGE</strong></th>
                                         <th><strong>PRICE</strong></th>
                                         <th><strong>DESCRIPTION</strong></th>
                                         <th><strong>TYPE</strong></th>
@@ -68,6 +69,7 @@
                                         <td class="text-ov">{{$property->user->full_name}}</td>
                                         <td class="text-ov">{{$property->address->street_address}}</td>
                                         <td class="text-ov">{{$property->name}}</td>
+                                        <td class="text-ov"><img class="img-fluid" src="{{ asset('storage/property/images/' . (json_decode($property->images)[0] ?? '')) }}" alt=""></td></td>
                                         <td>${{$property->price}}</td>
                                         <td>{{ Str::limit($property->description, 50)}}</td>
                                         <td>{{$property->type}}</td>
@@ -98,6 +100,7 @@
                                                 </button>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="{{route('dashboard.property.edit', $property->id)}}">Edit</a>
+                                                    <a class="dropdown-item" href="{{route('property.details', $property->id)}}">View</a>
                                                     <form action="{{route('dashboard.property.destroy', $property->id)}}" id="delete-product-form" method="post">
                                                         @csrf @method('DELETE')
                                                         <a style="cursor: pointer" class="dropdown-item" onclick="confirmDelete()">Delete</a>

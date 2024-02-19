@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\PropertyAddress;
 use App\Models\PropertySpecification;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 
@@ -24,42 +25,37 @@ class PropertyFactory extends Factory
     {
         $imageDirectory = public_path('web/images/property/grid/');
         $images = glob($imageDirectory . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
-
+        
         $floorPlanDirectory = public_path('web/images/property/floor-plans-01.jpeg');
         $floorPlanImages = $floorPlanDirectory;
-
+        
         $youtubeUrl = 'https://www.youtube.com/embed/kacyaEXqVhs';
         $propertyVideoId = Str::afterLast($youtubeUrl, '/');
-
+        
         shuffle($images);
-
+        
         // Pick the first 5 images from the shuffled array
         $randomImages = array_slice($images, 0, 2);
-
-        // Destination directory
-        $destinationPath = public_path('property/images/');
-
-        // Create the destination directory if it doesn't exist
-        File::ensureDirectoryExists($destinationPath);
-
+        
         $savedImages = [];
-
+        
         foreach ($randomImages as $image) {
             $basename = basename($image);
-            $destination = $destinationPath . $basename;
-
-            // Check if the file already exists
-            if (File::exists($destination)) {
-                // If it exists, unlink (delete) it
-                File::delete($destination);
+            $destinationPath = 'property/images/' . $basename;
+        
+            // Check if the file already exists in storage
+            if (Storage::disk('public')->exists($destinationPath)) {
+                // If it exists, delete it
+                Storage::disk('public')->delete($destinationPath);
             }
-
-            // Copy the image to the destination directory
-            File::copy($image, $destination);
-
+        
+            // Store the image in the storage directory
+            Storage::disk('public')->put($destinationPath, file_get_contents($image));
+        
             // Save the basename to the array
             $savedImages[] = $basename;
         }
+        
         // Convert the array of saved image basenames to a JSON string
         $serializedImagePaths = json_encode($savedImages);
 

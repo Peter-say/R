@@ -27,7 +27,7 @@
             </div>
             <!-- row -->
             @include('notifications.flash-messages')
-            <form action="{{ route('dashboard.property.store') }}" method="post">
+            <form action="{{ route('dashboard.property.store') }}" enctype="multipart/form-data" method="post">
                 @csrf
                 <input type="hidden" name="user_id" value="{{ $user->id }}">
 
@@ -177,19 +177,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                                        <div class="form-group">
-                                            <label>Type <span class="required-field">*</span></label>
-
-                                            <input type="text" name="type" required value="{{ old('type') }}"
-                                                class="form-control @error('type') is-invalid @enderror">
-                                            @error('type')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    </div>
+                                   
 
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">
@@ -528,30 +516,29 @@
 
         </div>
     </div>
-
     <script>
         $(document).ready(function() {
             // Counter to keep track of the number of specifications added
             let specificationCount = 1;
-
+    
             // Handle click event for "Add Another Specification" button
             $('#add-specification').click(function() {
                 // Clone the specification container and its contents
                 const newSpecification = $('#specification-container .specification').first().clone();
-
+    
                 // Clear input values in the cloned specification
                 newSpecification.find('input[type="text"]').val('');
-
-                // Update the name attributes for each input field in the cloned specification
-                newSpecification.find('input[name="name[]"]').attr('name', 'name[' + specificationCount +
-                    ']');
-
+    
+                // Update the name attribute for the input field in the cloned specification
+                newSpecification.find('input[name="feature[]"]').attr('name', 'feature[' + specificationCount + ']');
+    
                 // Append the cloned specification to the container
                 $('#specification-container').append(newSpecification);
-
+    
                 // Increment the specification count
                 specificationCount++;
             });
         });
     </script>
+    
 @endsection
