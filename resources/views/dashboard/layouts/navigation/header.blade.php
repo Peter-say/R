@@ -854,8 +854,13 @@
                                 <span class="text-black">{{ Auth::user()->full_name }}</span>
                                 <p class="fs-12 mb-0">{{ Auth::user()->role }}</p>
                             </div>
-                            <img src="{{asset('storage/users/avatar/' . Auth::user()->avatar) }}" width="20"
-                                alt="" />
+                            @if (!Auth::user()->avatar === null)
+                                <img src="{{ $dashboard_assets }}/web/images/avatar.jpeg }}" width="20"
+                                    alt="" />
+                            @else
+                                <img src="{{ asset('storage/users/avatar/' . Auth::user()->avatar) }}" width="20"
+                                    alt="" />
+                            @endif
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a href="{{ route('dashboard.profile.') }}" class="dropdown-item ai-icon">

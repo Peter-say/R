@@ -181,7 +181,7 @@
                     <div class="property-item">
                         <div class="property-image bg-overlay-gradient-04">
 
-                                <img class="img-fluid" src="{{ asset('property/images/' . (json_decode($latestProperty->images)[0] ?? '')) }}" alt="">
+                                <img class="img-fluid" src="{{ asset('storage/property/images/' . (json_decode($latestProperty->images)[0] ?? '')) }}" alt="">
 
                             <div class="property-lable">
                                 <span class="badge badge-md bg-primary">Bungalow</span>

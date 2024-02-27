@@ -584,7 +584,7 @@
                                         @foreach ($latest_properties as $property)
                                         <div class="items">
                                             <a href="property-details.html"><img
-                                                    src="{{ asset('property/images/' . (json_decode($property->images)[0] ?? '')) }}" alt="#"
+                                                    src="{{ asset('storage/property/images/' . (json_decode($property->images)[0] ?? '')) }}" alt="#"
                                                     class="w-100 mw-100 mb-3 rounded"></a>
                                             <h5 class="fs-16 font-w600 mb-0"><a href="property-details.html"
                                                     class="text-black">{{$property->address->country}}, {{$property->address->state}}</a></h5>
