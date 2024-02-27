@@ -855,10 +855,10 @@
                                 <p class="fs-12 mb-0">{{ Auth::user()->role }}</p>
                             </div>
                             @if (!Auth::user()->avatar === null)
-                                <img src="{{ $dashboard_assets }}/web/images/avatar.jpeg }}" width="20"
+                                <img src="{{ asset('storage/users/avatar/' . Auth::user()->avatar) }}" width="20"
                                     alt="" />
                             @else
-                                <img src="{{ asset('storage/users/avatar/' . Auth::user()->avatar) }}" width="20"
+                                <img src="{{ $dashboard_assets }}/images/profile/avatar.jpeg" width="20"
                                     alt="" />
                             @endif
                         </a>
