@@ -854,7 +854,7 @@
                                 <span class="text-black">{{ Auth::user()->full_name }}</span>
                                 <p class="fs-12 mb-0">{{ Auth::user()->role }}</p>
                             </div>
-                            @if (!Auth::user()->avatar === null)
+                            @if (!empty(Auth::user()->avatar === null))
                                 <img src="{{ asset('storage/users/avatar/' . Auth::user()->avatar) }}" width="20"
                                     alt="" />
                             @else

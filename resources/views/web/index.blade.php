@@ -215,7 +215,7 @@
                         </div>
                         <div class="property-details">
                             <div class="property-details-inner">
-                                <h5 class="property-title"><a href="">{{$latestProperty->name}} </a></h5>
+                                <h5 class="property-title"><a href="{{route('property.details', $latestProperty->id)}}">{{$latestProperty->name}} </a></h5>
                                 <span class="property-address">
                                     <i class="fas fa-map-marker-alt fa-xs"></i>
                                     @foreach ($latestProperties as $property)

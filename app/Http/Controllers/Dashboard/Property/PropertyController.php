@@ -18,7 +18,7 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        $properties = Property::paginate('50');
+        $properties = Property::paginate('50')->get();
         return view('dashboard.property.list', [
             'properties' => $properties,
         ]);
@@ -112,7 +112,6 @@ class PropertyController extends Controller
     public function destroy(string $id)
     {
         $property = Property::withTrashed()->findOrFail($id);
-        dd($property);
         $property->specifications()->delete();
         if ($property) {
             $property->forceDelete();
@@ -124,6 +123,7 @@ class PropertyController extends Controller
 
     public function updateFeatured(Request $request, $id)
     {
+       
         try {
             $property = Property::findOrFail($id);
             $property->update(['is_featured' => $request->input('is_featured')]);

@@ -101,7 +101,7 @@
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="{{route('dashboard.property.edit', $property->id)}}">Edit</a>
                                                     <a class="dropdown-item" href="{{route('property.details', $property->id)}}">View</a>
-                                                    <form action="{{route('dashboard.property.destroy', $property->id)}}" id="delete-product-form" method="post">
+                                                    <form action="{{route('dashboard.property.destroy',  $property->id)}}" id="delete-product-form" method="post">
                                                         @csrf @method('DELETE')
                                                         <a style="cursor: pointer" class="dropdown-item" onclick="confirmDelete()">Delete</a>
                                                     </form>

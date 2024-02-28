@@ -56,10 +56,26 @@ class PropertyService
         $imagePaths = [];
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
-                $avatarDirectory = 'property/images';
-                Storage::disk('public')->makeDirectory($avatarDirectory);
-                $imagePaths[] = FileHelpers::saveImageRequest($request->file('avatar'), $avatarDirectory);
+                $imageDirectory = 'property/images';
+                Storage::disk('public')->makeDirectory($imageDirectory);
+                $imagePaths[] = FileHelpers::saveImageRequest($request->file('images'),  $imageDirectory);
             }
+        }
+
+        $floorPlanImagePaths = [];
+        if ($request->hasFile('floor_plan_images')) {
+            foreach ($request->file('floor_plan_images') as $image) {
+                $imageDirectory = 'property/floor-plan/images';
+                Storage::disk('public')->makeDirectory($imageDirectory);
+                $floorPlanImagePaths[] = FileHelpers::saveImageRequest($request->file('floor_plan_images'),  $imageDirectory);
+            }
+        }
+
+
+        if ($request->hasFile('property_video')) {
+            $videoDirectory = 'property/video/';
+            Storage::disk('public')->makeDirectory($videoDirectory);
+            $propertyVideoPath = FileHelpers::saveImageRequest($request->file('property_video'), $videoDirectory);
         }
 
         // Create PropertyAddress record
@@ -85,7 +101,7 @@ class PropertyService
             'images' => json_encode($imagePaths),
             'price' => $request->input('price'),
             'description' => $request->input('description'),
-            'property_video' => $request->input('property_video'),
+            'property_video' =>  $propertyVideoPath,
             'size' => $request->input('size'),
             'type' => $request->input('type'),
             'bedrooms' => $request->input('bedrooms'),
@@ -94,7 +110,7 @@ class PropertyService
             'garage' => $request->input('garage'),
             'garage_size' => $request->input('garage_size'),
             'floor_plan_description' => $request->input('floor_plan_description'),
-            'floor_plan_images' => json_encode($request->input('floor_plan_images')),
+            'floor_plan_images' => json_encode($floorPlanImagePaths),
             'meta_description' => $request->input('meta_description'),
             'meta_keyword' => $request->input('meta_keyword'),
             'stock_status' => $request->input('stock_status'),
@@ -150,6 +166,33 @@ class PropertyService
             $imagePaths = json_decode($property->images, true);
         }
 
+        $floorPlanImagePaths = [];
+        if ($request->hasFile('floor_plan_images')) {
+            foreach ($request->file('floor_plan_images') as $image) {
+                $imageDirectory = 'property/floor-plan/images';
+                Storage::disk('public')->makeDirectory($imageDirectory);
+                $floorPlanImagePaths[] = FileHelpers::saveImageRequest($request->file('floor_plan_images'),  $imageDirectory);
+            }
+            // Delete old images if new images are provided
+            FileHelpers::deleteImages(json_decode($property->floor_plan_images, true));
+        } else {
+            // No new images provided, retain the existing ones
+            $floorPlanImagePaths = json_decode($property->floor_plan_images, true);
+        }
+
+
+        if ($request->hasFile('property_video')) {
+            $videoDirectory = 'property/video/';
+            Storage::disk('public')->makeDirectory($videoDirectory);
+            $propertyVideoPath = FileHelpers::saveImageRequest($request->file('property_video'), $videoDirectory);
+
+            FileHelpers::deleteImages($property->property_video);
+        } else {
+            // No new images provided, retain the existing ones
+            $floorPlanImagePaths = $property->property_video;
+        }
+
+
         // Update the property details
         $property->update([
             'uuid' => $request->input('uuid'),
@@ -161,7 +204,7 @@ class PropertyService
             'images' => json_encode($imagePaths),
             'price' => $request->input('price'),
             'description' => $request->input('description'),
-            'property_video' => $request->input('property_video'),
+            'property_video' =>  $propertyVideoPath,
             'size' => $request->input('size'),
             'type' => $request->input('type'),
             'bedrooms' => $request->input('bedrooms'),
@@ -170,7 +213,7 @@ class PropertyService
             'garage' => $request->input('garage'),
             'garage_size' => $request->input('garage_size'),
             'floor_plan_description' => $request->input('floor_plan_description'),
-            'floor_plan_images' => json_encode($request->input('floor_plan_images')),
+            'floor_plan_images' => json_encode($floorPlanImagePaths),
             'meta_description' => $request->input('meta_description'),
             'meta_keyword' => $request->input('meta_keyword'),
             'stock_status' => $request->input('stock_status'),

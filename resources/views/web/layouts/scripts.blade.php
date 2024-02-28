@@ -12,6 +12,7 @@ Javascript -->
   <script src="{{asset("/web/select2/select2.full.js")}}"></script>
   <script src="{{asset("/web/range-slider/ion.rangeSlider.min.js")}}"></script>
   <script src="{{asset("/web/owl-carousel/owl.carousel.min.js")}}"></script>
+  <script src="{{asset("/web/js/owl-carousel/owl.carousel.min.js")}}"></script>
   <script src="{{asset("/web/jarallax/jarallax.min.js")}}"></script>
   <script src="{{asset("/web/jarallax/jarallax-video.min.js")}}"></script>
   <script src="{{asset("/web/magnific-popup/jquery.magnific-popup.min.js")}}"></script>
