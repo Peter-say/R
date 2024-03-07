@@ -72,7 +72,7 @@
 
                                             <div class="form-group">
                                                 @if (Route::has('password.request'))
-                                                    <a href="{{$dashboard_assets}}/page-forgot-password.html">Forgot Password?</a>
+                                                    <a href="page-forgot-password.html">Forgot Password?</a>
                                                 @endif
                                             </div>
                                         </div>
@@ -83,7 +83,7 @@
                                     </form>
                                     <div class="new-account mt-3">
                                         <p>Don't have an account? <a class="text-primary"
-                                                href="{{$dashboard_assets}}/{{route('register')}}">Sign up</a></p>
+                                                href="{{route('register')}}">Sign up</a></p>
                                     </div>
                                 </div>
                             </div>
