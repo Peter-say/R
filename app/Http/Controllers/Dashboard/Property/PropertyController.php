@@ -96,7 +96,6 @@ class PropertyController extends Controller
         // dd($request->all());
         try {
             (new PropertyService)->updateProperty($request, $id);
-            dd($request->all(), $id);
             return redirect()->route('dashboard.property.index')->with('success_message', 'Propery updated successfully');
         } catch (\Illuminate\Database\QueryException $e) {
             // Handle database-related exceptionp

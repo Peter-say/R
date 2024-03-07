@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('properties', function (Blueprint $table) {
-            $table->string('is_featured')->default('No');
-            $table->string('is_trending')->default('No');
+            $table->string('is_featured')->nullable();
+            $table->string('is_trending')->nullable();
         });
     }
 

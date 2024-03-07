@@ -5,16 +5,16 @@ use App\Models\Property;
 use App\Models\PropertyAddress;
 use App\Models\PropertySpecification;
 use Illuminate\Http\Request;
-use App\Services\Property\FileServices;
+use App\Services\FileServices;
 use Illuminate\Support\Str;
 
 
 class PropertyService
 {
-    public $fileService;
+    protected $fileService;
 
-    public function __construct(FileServices $fileService) {
-        $this->fileService = $fileService;
+    public function __construct() {
+        $this->fileService = new FileServices();
     }
 
     private function validateData(Request $request)
@@ -28,7 +28,7 @@ class PropertyService
             'images.*' => 'nullable|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'price' => 'required|numeric|min:0',
             'description' => 'required|string',
-            'property_video' => 'nullable|string',
+            'property_video' => 'video|nullable|string',
             'size' => 'required|string',
             'type' => 'required|string',
             'bedrooms' => 'required|integer|min:0',
@@ -42,8 +42,8 @@ class PropertyService
             'meta_keyword' => 'nullable|string',
             'stock_status' => 'required|string',
             'status' => 'nullable',
-            'is_featured' => 'nullable',
-            'is_trending' => 'nullable',
+            'is_featured' => 'nullable|string',
+            'is_trending' => 'nullable|string',
         ]);
     }
 
@@ -52,6 +52,7 @@ class PropertyService
     public function storeProperty(Request $request)
     {
 
+        
         // Validate the incoming data
         $this->validateData($request);
 
@@ -121,7 +122,7 @@ class PropertyService
     public function updateProperty(Request $request, $id)
     {
         // Validate the incoming data
-        $this->validateData($request, $id);
+        $this->validateData($request);
 
         // Retrieve the property
         $property = Property::findOrFail($id);
@@ -140,7 +141,6 @@ class PropertyService
         // $imagePaths = [];
        
         $imagePaths = $this->fileService->updateImages($request, $property);
-        dd($imagePaths);
         $floorPlanImagePaths = [];
         $floorPlanImagePaths = $this->fileService->updateFloorPlanImages($request, $property);
 
