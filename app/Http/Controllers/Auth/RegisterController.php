@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -72,9 +73,16 @@ class RegisterController extends Controller
             'first_name' => $firstName,
             'last_name' => $lastName,
             'email' => $data['email'],
+            'uuid' => $this->generateUUID(),
             'password' => Hash::make($data['password']),
         ]);
     }
 
+    private function generateUUID()
+    {
+        $uuid = Str::uuid();
+        $shortUUID = str_replace('-', '', $uuid->toString());
+        return substr($shortUUID, 0, 12);
+    }
     // return redirect()->intended(route('user.dashboard.home'));
 }

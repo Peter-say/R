@@ -25,6 +25,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', [IndexController::class, 'index']);
 
 Route::prefix('web')->as('web.')->group(function () {
@@ -46,15 +47,14 @@ Auth::routes();
 Route::prefix('dashboard')->as('dashboard.')->middleware('auth')->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
 
-        Route::resource( 'property', DashboardPropertyController::class);
-    
+    Route::resource('property', DashboardPropertyController::class);
+
 
     Route::prefix('profile')->as('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'index']);
         Route::put('/{id}/update', [ProfileController::class, 'update'])->name('update');
         Route::get('change-password', [UpdatePasswordController::class, 'changePassword'])->name('change-password');
         Route::post('update-password', [UpdatePasswordController::class, 'updatePassword'])->name('update-password');
-    
     });
 
 
