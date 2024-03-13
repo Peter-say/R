@@ -36,6 +36,7 @@ class PropertyService
             'year_built' => 'required|string',
             'garage' => 'required|integer|min:0',
             'garage_size' => 'required|integer|min:0',
+            'square_ft' => 'required|integer|min:0',
             'floor_plan_description' => 'nullable|string',
             'floor_plan_images' => 'nullable|json',
             'meta_description' => 'nullable|string',
@@ -97,6 +98,7 @@ class PropertyService
             'year_built' => $request->input('year_built'),
             'garage' => $request->input('garage'),
             'garage_size' => $request->input('garage_size'),
+            'square_ft' => $request->input('square_ft'),
             'floor_plan_description' => $request->input('floor_plan_description'),
             'floor_plan_images' => json_encode($floorPlanImagePaths),
             'meta_description' => $request->input('meta_description'),
@@ -165,6 +167,7 @@ class PropertyService
             'year_built' => $request->input('year_built'),
             'garage' => $request->input('garage'),
             'garage_size' => $request->input('garage_size'),
+            'square_ft' => $request->input('square_ft'),
             'floor_plan_description' => $request->input('floor_plan_description'),
             'floor_plan_images' => json_encode($floorPlanImagePaths),
             'meta_description' => $request->input('meta_description'),
@@ -195,6 +198,6 @@ class PropertyService
     {
         $uuid = Str::uuid();
         $shortUUID = str_replace('-', '', $uuid->toString());
-        return substr($shortUUID, 0, 12);
+        return substr($shortUUID, 0, 10);
     }
 }

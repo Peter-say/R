@@ -62,7 +62,7 @@ class PropertyFactory extends Factory
         $faker = \Faker\Factory::create();
 
         return [
-            'category_id' => mt_rand(1, 2),
+            'category_id' => mt_rand(1, 5),
             'uuid' => $faker->uuid(12),
             'user_id' => mt_rand(1, 10),
             'name' => $name = $this->faker->sentence($nbWords = rand(10, 15), $variableNbWords = true),
@@ -77,6 +77,7 @@ class PropertyFactory extends Factory
             'bathrooms' => $faker->numberBetween(1, 3),
             'year_built' => $faker->date,
             'garage' => $faker->numberBetween(0, 1),
+            'square_ft' => $faker->numberBetween(100, 15000),
             'garage_size' => $faker->numberBetween(1, 3),
             'address_id' => mt_rand(1, 15),
             'floor_plan_description' => $faker->sentence(2),

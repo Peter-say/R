@@ -14,7 +14,7 @@ class HomeController extends Controller
    public function index()
    {
       $user = Auth::user();
-      $all_users = User::all();
+      $all_users = User::get();
       $total_properties = Property::get();
       // Get the count of properties created in the last month
       $lastMonthPropertiesCount = Property::whereBetween(

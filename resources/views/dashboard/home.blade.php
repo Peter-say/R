@@ -246,7 +246,7 @@
                                             </thead>
                                             <tbody>
                                                 @php
-                                                    $latestUser = $all_users;
+                                                    $latestUser = $all_users->take(5);
                                                 @endphp
                                                 @foreach ($latestUser as $user)
                                                     <tr>

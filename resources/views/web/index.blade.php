@@ -184,8 +184,8 @@
                                 <img class="img-fluid" src="{{ asset('storage/property/images/' . (json_decode($latestProperty->images)[0] ?? '')) }}" alt="">
 
                             <div class="property-lable">
-                                <span class="badge badge-md bg-primary">Bungalow</span>
-                                <span class="badge badge-md bg-info">Sale </span>
+                                <span class="badge badge-md bg-primary">{{$latestProperty->type}}</span>
+                                <span class="badge badge-md bg-info">{{$latestProperty->stock_status}}</span>
                             </div>
                             <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
                             <div class="property-agent">
@@ -225,11 +225,11 @@
                                 <span class="property-agent-date">
                                     <i class="far fa-clock fa-md"></i>{{ $latestProperty->created_at->diffForHumans() }}
                                 </span>
-                                <div class="property-price">$150.00<span> / month</span> </div>
+                                <div class="property-price">${{number_format($latestProperty->price)}}<span> / month</span> </div>
                                 <ul class="property-info list-unstyled d-flex">
                                     <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>{{ $latestProperty->bedrooms }}</span></li>
                                     <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>{{ $latestProperty->bathrooms }}</span></li>
-                                    <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>145m</span></li>
+                                    <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>{{$latestProperty->square_ft}}m</span></li>
                                 </ul>
                             </div>
                             <div class="property-btn">

@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('year_built');
             $table->integer('garage');
             $table->integer('garage_size');
+            $table->integer('square_ft');
             $table->string('floor_plan_description')->nullable();
             $table->json('floor_plan_images');
             $table->string('meta_description')->nullable();

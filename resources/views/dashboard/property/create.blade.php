@@ -177,7 +177,19 @@
                                         </div>
                                     </div>
 
-                                   
+                                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Square Ft <span class="required-field">*</span></label>
+
+                                            <input type="text" name="square_ft" required value="{{ old('square_ft') }}"
+                                                class="form-control @error('square_ft') is-invalid @enderror">
+                                            @error('square_ft')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
 
                                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                         <div class="form-group">

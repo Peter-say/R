@@ -267,7 +267,7 @@
                                 <div class="col-sm-9">
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <iframe width="546" height="315"
-                                            src="{{ $web_assets }}/https://www.youtube.com/embed/kacyaEXqVhs"
+                                            src="{{asset('storage/property/videos/' . $property->property_video ?? 'Not Available') }}"
                                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                             allowfullscreen></iframe>
                                     </div>
@@ -275,209 +275,8 @@
                             </div>
                         </div>
                         <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
-                        <div class="property-walk-score">
-                            <div class="row">
-                                <div class="col-sm-3 mb-3 mb-sm-0">
-                                    <h5>WalkScore</h5>
-                                </div>
-                                <div class="col-sm-9">
-                                    <div class="walk-score-info d-sm-flex">
-                                        <div class="mb-2 mb-sm-0">
-                                            <img src="{{ $web_assets }}/images/property/walk-score.png" alt="">
-                                            <p class="mb-0 d-block mt-2">walkscore96 / Walker's Paradise</p>
-                                        </div>
-                                        <a class="btn btn-primary btn-sm ms-auto" href="#">More details here</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
-                        <div class="property-nearby">
-                            <div class="row">
-                                <div class="col-sm-3 mb-3 mb-sm-0">
-                                    <h5>What's nearby</h5>
-                                </div>
-                                <div class="col-sm-9">
-                                    <div class="nearby-info mb-4">
-                                        <span class="nearby-title mb-2 d-block text-info">
-                                            <i class="fas fa-graduation-cap me-2"></i><b>Education</b>
-                                        </span>
-                                        <div class="nearby-list">
-                                            <ul class="property-list list-unstyled mb-0">
-                                                <li class="d-flex">
-                                                    <span class="me-1"><b>Case Western Reserve University</b> (2.10
-                                                        km)</span>
-                                                    <ul class="list-unstyled list-inline ms-auto">
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star-half-alt fa-xs"></i>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="d-flex">
-                                                    <span class="me-1"><b>Georgia Institute of Technology</b> (1.42
-                                                        km)</span>
-                                                    <ul class="list-unstyled list-inline ms-auto">
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star-half-alt fa-xs"></i>
-                                                        </li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="far fa-star fa-xs"></i></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="d-flex">
-                                                    <span class="me-1"><b>Harvey Mudd College</b> (1.64 km)</span>
-                                                    <ul class="list-unstyled list-inline ms-auto">
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star-half-alt fa-xs"></i>
-                                                        </li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="far fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="far fa-star fa-xs"></i></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="nearby-info mb-4">
-                                        <span class="nearby-title mb-2 d-block text-success">
-                                            <i class="fas fa-user-md me-2"></i><b>Health & Medical</b>
-                                        </span>
-                                        <div class="nearby-list">
-                                            <ul class="property-list list-unstyled mb-0">
-                                                <li class="d-flex">
-                                                    <span class="me-1"><b>Hopedale Community Hospital</b> (2.04
-                                                        km)</span>
-                                                    <ul class="list-unstyled list-inline ms-auto">
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star-half-alt fa-xs"></i>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="d-flex">
-                                                    <span class="me-1"><b>North Star Medical Clinic</b> (1.45 km)</span>
-                                                    <ul class="list-unstyled list-inline ms-auto">
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star-half-alt fa-xs"></i>
-                                                        </li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="far fa-star fa-xs"></i></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="d-flex">
-                                                    <span class="me-1"><b>Maple Valley General Hospital</b> (2.64
-                                                        km)</span>
-                                                    <ul class="list-unstyled list-inline ms-auto">
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star-half-alt fa-xs"></i>
-                                                        </li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="far fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="far fa-star fa-xs"></i></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="nearby-info">
-                                        <span class="nearby-title mb-2 d-block text-danger">
-                                            <i class="fas fa-bus-alt me-2"></i><b>Transportation</b>
-                                        </span>
-                                        <div class="nearby-list">
-                                            <ul class="property-list list-unstyled mb-0">
-                                                <li class="d-flex">
-                                                    <span class="me-1"><b>Central bus depot </b> (2.04 km)</span>
-                                                    <ul class="list-unstyled list-inline ms-auto">
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star-half-alt fa-xs"></i>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="d-flex">
-                                                    <span class="me-1"><b>Travello & Bus Charter Express</b> (2.54
-                                                        km)</span>
-                                                    <ul class="list-unstyled list-inline ms-auto">
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star-half-alt fa-xs"></i>
-                                                        </li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="far fa-star fa-xs"></i></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="d-flex">
-                                                    <span class="me-1"><b>Charing Cross & Paddington Shipping</b> (2.64
-                                                        km)</span>
-                                                    <ul class="list-unstyled list-inline ms-auto">
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="fas fa-star-half-alt fa-xs"></i>
-                                                        </li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="far fa-star fa-xs"></i></li>
-                                                        <li class="list-inline-item m-0 text-warning"><i
-                                                                class="far fa-star fa-xs"></i></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      
+                       
                         <hr class="mt-4 mb-4 mb-sm-5 mt-sm-5">
                         <div class="property-schedule">
                             <div class="row">
@@ -551,184 +350,79 @@
                 <hr class="mb-5 mt-0">
                 <h5 class="mb-4">Similar properties</h5>
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="property-item">
-                            <div class="property-image bg-overlay-gradient-04">
-                                <img class="img-fluid" src="{{ $web_assets }}/images/property/grid/01.jpg"
-                                    alt="">
-                                <div class="property-lable">
-                                    <span class="badge badge-md bg-primary">Bungalow</span>
-                                    <span class="badge badge-md bg-info">Sale </span>
-                                </div>
-                                <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
-                                <div class="property-agent">
+
+                   @foreach ($relatedProperties as $relatedProperty)
+                   <div class="col-sm-6 col-md-4">
+                    <div class="property-item">
+                        <div class="property-image bg-overlay-gradient-04">
+
+                                <img class="img-fluid" src="{{ asset('storage/property/images/' . (json_decode($relatedProperty->images)[0] ?? '')) }}" alt="">
+
+                            <div class="property-lable">
+                                <span class="badge badge-md bg-primary">{{$relatedProperty->type}}</span>
+                                <span class="badge badge-md bg-info">{{$relatedProperty->stock_status}} </span>
+                            </div>
+                            <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
+                            <div class="property-agent">
+                                @if ($relatedProperty->agent)
                                     <div class="property-agent-image">
-                                        <img class="img-fluid" src="{{ $web_assets }}/images/avatar/01.jpg"
-                                            alt="">
+                                        <img class="img-fluid" src="{{asset("/web/images/avatar/01.jpg")}}" alt="">
                                     </div>
                                     <div class="property-agent-info">
-                                        <a class="property-agent-name" href="#">Alice Williams</a>
+                                        <a class="property-agent-name" href="#">{{ $relatedProperty->agent->full_name }}</a>
                                         <span class="d-block">Company Agent</span>
                                         <ul class="property-agent-contact list-unstyled">
                                             <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
                                             <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
                                         </ul>
                                     </div>
-                                </div>
-                                <div class="property-agent-popup">
-                                    <a href="#"><i class="fas fa-camera"></i> 06</a>
-                                </div>
-                            </div>
-                            <div class="property-details">
-                                <div class="property-details-inner">
-                                    <h5 class="property-title"><a href="property-detail-style-01.html">Ample apartment at
-                                            last floor </a>
-                                    </h5>
-                                    <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Virginia
-                                        drive temple
-                                        hills</span>
-                                    <span class="property-agent-date"><i class="far fa-clock fa-md"></i>10 days ago</span>
-                                    <div class="property-price">$150.00<span> / month</span> </div>
-                                    <ul class="property-info list-unstyled d-flex">
-                                        <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>1</span>
-                                        </li>
-                                        <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>2</span>
-                                        </li>
-                                        <li class="flex-fill property-m-sqft"><i
-                                                class="far fa-square"></i>sqft<span>145m</span></li>
-                                    </ul>
-                                </div>
-                                <div class="property-btn">
-                                    <a class="property-link" href="property-detail-style-01.html">See Details</a>
-                                    <ul class="property-listing-actions list-unstyled mb-0">
-                                        <li class="property-compare"><a data-bs-toggle="tooltip" data-placement="top"
-                                                title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a>
-                                        </li>
-                                        <li class="property-favourites"><a data-bs-toggle="tooltip" data-placement="top"
-                                                title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="property-item">
-                            <div class="property-image bg-overlay-gradient-04">
-                                <img class="img-fluid" src="{{ $web_assets }}/images/property/grid/02.jpg"
-                                    alt="">
-                                <div class="property-lable">
-                                    <span class="badge badge-md bg-primary">Apartment</span>
-                                    <span class="badge badge-md bg-info">New </span>
-                                </div>
-                                <div class="property-agent">
-                                    <div class="property-agent-image">
-                                        <img class="img-fluid" src="{{ $web_assets }}/images/avatar/02.jpg"
-                                            alt="">
-                                    </div>
+                                @else
                                     <div class="property-agent-info">
-                                        <a class="property-agent-name" href="#">John doe</a>
-                                        <span class="d-block">Company Agent</span>
-                                        <ul class="property-agent-contact list-unstyled">
-                                            <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                            <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                        </ul>
+                                        <span class="property-agent-name">No Agent Assigned</span>
+                                        <!-- Other agent details... -->
                                     </div>
-                                </div>
-                                <div class="property-agent-popup">
-                                    <a href="#"><i class="fas fa-camera"></i> 12</a>
-                                </div>
+                                @endif
                             </div>
-                            <div class="property-details">
-                                <div class="property-details-inner">
-                                    <h5 class="property-title"><a href="property-detail-style-01.html">Awesome family
-                                            home</a></h5>
-                                    <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Vermont dr.
-                                        hephzibah</span>
-                                    <span class="property-agent-date"><i class="far fa-clock fa-md"></i>2 months
-                                        ago</span>
-                                    <div class="property-price">$326.00<span> / month</span> </div>
-                                    <ul class="property-info list-unstyled d-flex">
-                                        <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>2</span>
-                                        </li>
-                                        <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>3</span>
-                                        </li>
-                                        <li class="flex-fill property-m-sqft"><i
-                                                class="far fa-square"></i>sqft<span>215m</span></li>
-                                    </ul>
-                                </div>
-                                <div class="property-btn">
-                                    <a class="property-link" href="property-detail-style-01.html">See Details</a>
-                                    <ul class="property-listing-actions list-unstyled mb-0">
-                                        <li class="property-compare"><a data-bs-toggle="tooltip" data-placement="top"
-                                                title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a>
-                                        </li>
-                                        <li class="property-favourites"><a data-bs-toggle="tooltip" data-placement="top"
-                                                title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
+
+                            <div class="property-agent-popup">
+                                <a href="#"><i class="fas fa-camera"></i> 06</a>
+                            </div>
+                        </div>
+                        <div class="property-details">
+                            <div class="property-details-inner">
+                                <h5 class="property-title"><a href="{{route('property.details', $relatedProperty->id)}}">{{$relatedProperty->name}} </a></h5>
+                                <span class="property-address">
+                                    <i class="fas fa-map-marker-alt fa-xs"></i>
+                                    {{-- @foreach ($relatedProperties as $relatedProperty) --}}
+                                    {{ $relatedProperty->address->street_address ?? 'No Address Available' }}
+                                    {{-- @endforeach --}}
+                                </span>
+                                <span class="property-agent-date">
+                                    <i class="far fa-clock fa-md"></i>{{ $relatedProperty->created_at->diffForHumans() }}
+                                </span>
+                                <div class="property-price">${{number_format($relatedProperty->price)}}<span> / month</span> </div>
+                                <ul class="property-info list-unstyled d-flex">
+                                    <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>{{ $relatedProperty->bedrooms }}</span></li>
+                                    <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>{{ $relatedProperty->bathrooms }}</span></li>
+                                    <li class="flex-fill property-m-sqft"><i class="far fa-square"></i>sqft<span>{{$relatedProperty->square_ft}}m</span></li>
+                                </ul>
+                            </div>
+                            <div class="property-btn">
+                                <a class="property-link" href="{{ route('property.details', $relatedProperty->id) }}">See Details</a>
+                                <ul class="property-listing-actions list-unstyled mb-0">
+                                    <li class="property-compare">
+                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a>
+                                    </li>
+                                    <li class="property-favourites">
+                                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="Favourite" href="#"><i class="far fa-heart"></i></a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="property-item">
-                            <div class="property-image bg-overlay-gradient-04">
-                                <img class="img-fluid" src="{{ $web_assets }}/images/property/grid/03.jpg"
-                                    alt="">
-                                <div class="property-lable">
-                                    <span class="badge badge-md bg-primary">Summer House</span>
-                                    <span class="badge badge-md bg-info">Hot </span>
-                                </div>
-                                <span class="property-trending" title="trending"><i class="fas fa-bolt"></i></span>
-                                <div class="property-agent">
-                                    <div class="property-agent-image">
-                                        <img class="img-fluid" src="{{ $web_assets }}/images/avatar/03.jpg"
-                                            alt="">
-                                    </div>
-                                    <div class="property-agent-info">
-                                        <a class="property-agent-name" href="#">Felica queen</a>
-                                        <span class="d-block">Investment</span>
-                                        <ul class="property-agent-contact list-unstyled">
-                                            <li><a href="#"><i class="fas fa-mobile-alt"></i> </a></li>
-                                            <li><a href="#"><i class="fas fa-envelope"></i> </a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="property-agent-popup">
-                                    <a href="#"><i class="fas fa-camera"></i> 03</a>
-                                </div>
-                            </div>
-                            <div class="property-details">
-                                <div class="property-details-inner">
-                                    <h5 class="property-title"><a href="property-detail-style-01.html">Contemporary
-                                            apartment</a></h5>
-                                    <span class="property-address"><i class="fas fa-map-marker-alt fa-xs"></i>Newport st.
-                                        mebane,
-                                        nc</span>
-                                    <span class="property-agent-date"><i class="far fa-clock fa-md"></i>6 months
-                                        ago</span>
-                                    <div class="property-price">$658.00<span> / month</span> </div>
-                                    <ul class="property-info list-unstyled d-flex">
-                                        <li class="flex-fill property-bed"><i class="fas fa-bed"></i>Bed<span>3</span>
-                                        </li>
-                                        <li class="flex-fill property-bath"><i class="fas fa-bath"></i>Bath<span>4</span>
-                                        </li>
-                                        <li class="flex-fill property-m-sqft"><i
-                                                class="far fa-square"></i>sqft<span>3,189m</span></li>
-                                    </ul>
-                                </div>
-                                <div class="property-btn">
-                                    <a class="property-link" href="property-detail-style-01.html">See Details</a>
-                                    <ul class="property-listing-actions list-unstyled mb-0">
-                                        <li class="property-compare"><a data-bs-toggle="tooltip" data-placement="top"
-                                                title="Compare" href="#"><i class="fas fa-exchange-alt"></i></a>
-                                        </li>
-                                        <li class="property-favourites"><a data-bs-toggle="tooltip" data-placement="top"
-                                                title="Favourite" href="#"><i class="far fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                   @endforeach
+                   
                 </div>
             </div>
         </section>

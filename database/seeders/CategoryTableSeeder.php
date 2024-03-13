@@ -23,38 +23,73 @@ class CategoryTableSeeder extends Seeder
                 'name' => 'Commercial',
                 'parent_id' => null,
             ],
+
+            [
+                'name' => 'Land',
+                'parent_id' => null,
+            ],
+
+            [
+                'name' => 'Rentals',
+                'parent_id' => null,
+            ],
+
+            [
+                'name' => 'Musuem',
+                'parent_id' => null,
+            ],
     
             [
                 'name' => 'Apartment',
-                'parent_id' => 1, // Parent category: Residential
+                'parent_id' => 1, 
             ],
     
             [
                 'name' => 'Land',
-                'parent_id' => 1, // Parent category: Residential
+                'parent_id' => 1, 
             ],
     
             [
                 'name' => 'Building Code',
-                'parent_id' => 2, // Parent category: Commercial
+                'parent_id' => 2, 
             ],
     
             [
                 'name' => 'Communal Land',
-                'parent_id' => 1, // Parent category: Residential
+                'parent_id' => 3, 
             ],
     
             [
                 'name' => 'Floor Area',
-                'parent_id' => 2, // Parent category: Commercial
+                'parent_id' => 3, 
             ],
     
             [
                 'name' => 'Insurability',
-                'parent_id' => 2, // Parent category: Commercial
+                'parent_id' => 4, 
+            ],
+
+            [
+                'name' => 'Studio',
+                'parent_id' => 3, 
             ],
     
-            // Add more subcategories as needed
+            [
+                'name' => 'Market',
+                'parent_id' => 5, 
+            ],
+
+            [
+                'name' => 'Campus',
+                'parent_id' => 4, 
+            ],
+    
+            [
+                'name' => 'School',
+                'parent_id' => 5, 
+            ],
+    
+           
         ];
 
         foreach ($datas as $key => $data) {
