@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="section-title mb-3 mb-lg-4">
-                        <h2><span class="text-primary">156</span> Results</h2>
+                        <h2><span class="text-primary">{{$agents->count()}}</span> Results</h2>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -181,13 +181,13 @@
                                                     <li><strong>Email: </strong>{{$agent->email}}</li>
                                                 </ul>
                                                 <ul class="list-unstyled mb-0">
-                                                    <li><strong>Mobile: </strong>(456) 478-2589</li>
+                                                    <li><strong>Mobile: </strong>{{$agent->phone_number ?? 'Not Available'}}</li>
                                                     <li><strong>WhatsApp: </strong>(456) 478-2589</li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="agent-button">
-                                            <a class="btn btn-light btn-lg d-grid" href="">View
+                                            <a class="btn btn-light btn-lg d-grid" href="{{route('agent.profile', $agent->uuid)}}">View
                                                 Profile</a>
                                         </div>
                                     </div>

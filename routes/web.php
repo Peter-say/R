@@ -44,7 +44,7 @@ Route::prefix('property')->as('property.')->group(function () {
 });
 
 Auth::routes();
-Route::prefix('dashboard')->as('dashboard.')->middleware('auth')->group(function () {
+Route::prefix('dashboard')->as('dashboard.')->middleware('auth', 'verified')->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
 
     Route::resource('property', DashboardPropertyController::class);
@@ -71,4 +71,5 @@ Route::prefix('dashboard')->as('dashboard.')->middleware('auth')->group(function
 });
 Route::prefix('agent')->as('agent.')->group(function () {
     Route::get('listing', [AgentController::class, 'listing'])->name('listing');
+    Route::get('{uuid}/profile', [AgentController::class, 'agentProfile'])->name('profile');
 });

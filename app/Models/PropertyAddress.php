@@ -14,4 +14,5 @@ class PropertyAddress extends Model
 {
     return $this->belongsTo(Property::class);
 }
+
 }

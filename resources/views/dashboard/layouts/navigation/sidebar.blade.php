@@ -10,7 +10,9 @@
 						</a>
 						<ul aria-expanded="false">
 							<li><a href="{{route('dashboard.home')}}">Dashboard</a></li>
+							@can('can_read_user')
 							<li><a href="{{route('dashboard.users.')}}">App Users</a></li>
+							@endcan
 							<li><a href="{{route('dashboard.user.wishlists')}}">WishList</a></li>
 							<li><a href="{{route('dashboard.user.orders')}}">Order List</a></li>
 							<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Property</a>

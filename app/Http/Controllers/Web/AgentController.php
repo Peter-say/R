@@ -13,11 +13,19 @@ class AgentController extends Controller
     {
         $recentProperties = Property::latest()->take(5)->get();
         $featuredProperty = Property::where('is_featured', 'Yes')->first();
-        $agents = User::where('is_verified', 'Yes')->where('role' , 'agent')->get();
+        $agents = User::where('is_verified', 'Yes')->where('role', 'agent')->get();
         return view('web.agent.listing', [
             'recentProperties' =>  $recentProperties,
             'agents' => $agents,
             'featuredProperty' => $featuredProperty,
+        ]);
+    }
+
+    public function agentProfile($uuid)
+    {
+        $agent = User::where('uuid', $uuid)->firstOrFail();
+        return view('web.agent.profile', [
+            'agent' => $agent,
         ]);
     }
 }

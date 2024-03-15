@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         User::create([
           'first_name' => 'Sudo',
           'last_name' => 'Admin',
-          'email' => 'admin@gmail.com',
+          'email' => 'sudo@property.com',
           'role' => 'Admin',
           'avatar' => null,
           'email_verified_at' => now(),
